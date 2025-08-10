@@ -1,2 +1,18 @@
 # axiomiqai.eu.org
-Coming Soon page for monnom.eu.org, hosted on GitHub Pages and protected by Cloudflare. SSL certificate, HTTPS redirection, and an optimized setup ready to migrate to a fast, secure, and professional full website.
+
+<p align="center">
+  <img src="banner.png" alt="Banner" width="800">
+</p>
+
+## 🚀 About
+Coming soon: A fast, secure, and professional website hosted on GitHub Pages and protected by Cloudflare.
+
+## 🛠 Tech Stack
+- HTML5 & CSS3
+- GitHub Pages
+- Cloudflare CDN & SSL
+
+## 📫 Contact
+- **Website:** [axiomiqai.eu.org](https://axiomiqai.eu.org)
+- **GitHub:** [@BrainyVerse](https://github.com/BrainyVerse)
+
