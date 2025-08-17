@@ -3,229 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AxiomIQAI - Transform Your Future with AI | Transformez Votre Avenir avec l'IA</title>
+    <title>AxiomIQAI - Enterprise AI Solutions | Solutions IA d'Entreprise</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'midnight': '#0B1426',
-                        'electric': '#00D4FF',
-                        'platinum': '#F7FAFC',
-                        'steel': '#2D3748',
-                        'crimson': '#E53E3E',
-                        'emerald': '#38A169',
-                        'gold': '#D69E2E',
-                        'purple': '#805AD5'
+                        'royal': '#0F172A',
+                        'gold': '#F59E0B',
+                        'platinum': '#F8FAFC',
+                        'charcoal': '#1E293B',
+                        'crimson': '#DC2626',
+                        'emerald': '#059669',
+                        'navy': '#1E40AF'
                     },
                     fontFamily: {
-                        'display': ['Space Grotesk', 'sans-serif'],
+                        'display': ['Playfair Display', 'serif'],
                         'sans': ['Inter', 'sans-serif']
                     },
                     animation: {
-                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
-                        'float-slow': 'float-slow 8s ease-in-out infinite',
-                        'slide-up': 'slide-up 0.6s ease-out',
-                        'fade-in': 'fade-in 0.8s ease-out',
-                        'scale-in': 'scale-in 0.5s ease-out',
-                        'gradient-shift': 'gradient-shift 3s ease-in-out infinite'
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slideUp': 'slideUp 0.8s ease-out',
+                        'fadeIn': 'fadeIn 1s ease-out',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite'
                     }
                 }
             }
         }
     </script>
     <style>
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(0, 212, 255, 0.6), 0 0 60px rgba(0, 212, 255, 0.4); }
-        }
-        @keyframes float-slow {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-20px) rotate(2deg); }
-            66% { transform: translateY(-10px) rotate(-1deg); }
-        }
-        @keyframes slide-up {
-            from { opacity: 0; transform: translateY(60px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fade-in {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes scale-in {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        @keyframes gradient-shift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        @keyframes glow { from { box-shadow: 0 0 20px #F59E0B; } to { box-shadow: 0 0 30px #F59E0B, 0 0 40px #F59E0B; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
-        .hero-gradient {
-            background: linear-gradient(135deg, #0B1426 0%, #1A202C 25%, #2D3748 50%, #1A202C 75%, #0B1426 100%);
-            background-size: 400% 400%;
-            animation: gradient-shift 8s ease infinite;
-        }
+        .gradient-royal { background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%); }
+        .gradient-gold { background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #F59E0B 100%); }
+        .glass-effect { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .shadow-premium { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+        .text-shadow { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
         
-        .electric-gradient {
-            background: linear-gradient(135deg, #00D4FF 0%, #0099CC 50%, #0066AA 100%);
-        }
-        
-        .glass-morphism {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .premium-shadow {
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-        }
-        
-        .electric-shadow {
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
-        }
-        
-        .text-gradient {
-            background: linear-gradient(135deg, #00D4FF, #0099CC);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hover-lift {
+        .card-hover { 
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .hover-lift:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        .card-hover:hover { 
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
         }
         
-        .electric-button {
-            background: linear-gradient(135deg, #00D4FF 0%, #0099CC 100%);
+        .premium-button { 
+            background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #F59E0B 100%);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
         }
-        .electric-button:hover {
+        .premium-button:hover { 
             transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.4);
         }
-        .electric-button::before {
+        .premium-button::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.6s;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
         }
-        .electric-button:hover::before {
+        .premium-button:hover::before {
             left: 100%;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
+            position: relative;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F59E0B' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .stats-number {
+            background: linear-gradient(135deg, #F59E0B, #FBBF24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            border-color: #F59E0B;
+        }
+        
+        .process-step {
+            position: relative;
+        }
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #F59E0B, transparent);
+            transform: translateY(-50%);
+        }
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
         }
         
         .nav-blur {
             backdrop-filter: blur(20px);
-            background: rgba(11, 20, 38, 0.9);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-        }
-        
-        .metric-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            transition: all 0.4s ease;
-        }
-        .metric-card:hover {
-            border-color: rgba(0, 212, 255, 0.5);
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0, 212, 255, 0.2);
-        }
-        
-        .testimonial-premium {
-            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-            border: 2px solid transparent;
-            background-clip: padding-box;
-            position: relative;
-        }
-        .testimonial-premium::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            padding: 2px;
-            background: linear-gradient(135deg, #00D4FF, #0099CC);
-            border-radius: inherit;
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-        }
-        
-        .floating-orb {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.3) 0%, transparent 70%);
-            animation: float-slow 8s ease-in-out infinite;
-        }
-        
-        .section-divider {
-            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.5), transparent);
-            height: 1px;
-            margin: 4rem 0;
-        }
-        
-        .trust-badge {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 204, 0.1) 100%);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-        
-        .impact-number {
-            background: linear-gradient(135deg, #00D4FF, #0099CC, #00D4FF);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradient-shift 3s ease-in-out infinite;
+            background: rgba(255, 255, 255, 0.95);
         }
         
         @media (max-width: 768px) {
-            .hero-gradient {
-                background-size: 200% 200%;
+            .process-step::after {
+                display: none;
             }
         }
     </style>
 </head>
-<body class="font-sans bg-midnight text-white overflow-x-hidden">
+<body class="font-sans bg-white overflow-x-hidden">
     <!-- Navigation -->
-    <nav class="fixed w-full top-0 z-50 nav-blur transition-all duration-300">
+    <nav class="fixed w-full top-0 z-50 nav-blur border-b border-gray-200/50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <div class="w-14 h-14 electric-gradient rounded-2xl flex items-center justify-center mr-4 electric-shadow">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    <div class="w-12 h-12 gradient-gold rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                     </div>
-                    <span class="text-3xl font-display font-bold text-white">AxiomIQAI</span>
+                    <span class="text-2xl font-display font-bold text-royal">AxiomIQAI</span>
                 </div>
                 
                 <div class="hidden lg:flex items-center space-x-8">
-                    <a href="#solutions" class="nav-link text-gray-300 hover:text-electric font-medium transition-colors duration-300" data-fr="Solutions" data-en="Solutions">Solutions</a>
-                    <a href="#impact" class="nav-link text-gray-300 hover:text-electric font-medium transition-colors duration-300" data-fr="Impact" data-en="Impact">Impact</a>
-                    <a href="#methodology" class="nav-link text-gray-300 hover:text-electric font-medium transition-colors duration-300" data-fr="Méthodologie" data-en="Methodology">Méthodologie</a>
-                    <a href="#testimonials" class="nav-link text-gray-300 hover:text-electric font-medium transition-colors duration-300" data-fr="Témoignages" data-en="Testimonials">Témoignages</a>
+                    <a href="#solutions" class="nav-link text-charcoal hover:text-gold font-medium transition-colors duration-300" data-fr="Solutions" data-en="Solutions">Solutions</a>
+                    <a href="#results" class="nav-link text-charcoal hover:text-gold font-medium transition-colors duration-300" data-fr="Résultats" data-en="Results">Résultats</a>
+                    <a href="#process" class="nav-link text-charcoal hover:text-gold font-medium transition-colors duration-300" data-fr="Processus" data-en="Process">Processus</a>
+                    <a href="#testimonials" class="nav-link text-charcoal hover:text-gold font-medium transition-colors duration-300" data-fr="Témoignages" data-en="Testimonials">Témoignages</a>
                     
-                    <div class="flex items-center space-x-2 glass-morphism rounded-lg p-1">
-                        <button onclick="switchLanguage('fr')" class="lang-btn px-4 py-2 text-sm font-semibold rounded-md transition-all duration-300" data-lang="fr">FR</button>
-                        <button onclick="switchLanguage('en')" class="lang-btn px-4 py-2 text-sm font-semibold rounded-md transition-all duration-300" data-lang="en">EN</button>
+                    <div class="flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
+                        <button onclick="switchLanguage('fr')" class="lang-btn px-3 py-2 text-sm font-semibold rounded-md transition-all duration-300" data-lang="fr">FR</button>
+                        <button onclick="switchLanguage('en')" class="lang-btn px-3 py-2 text-sm font-semibold rounded-md transition-all duration-300" data-lang="en">EN</button>
                     </div>
                     
-                    <button onclick="scrollToSection('contact')" class="electric-button text-white px-8 py-3 rounded-xl font-bold text-sm tracking-wide electric-shadow" 
-                            data-fr="CONSULTATION STRATÉGIQUE" data-en="STRATEGIC CONSULTATION">CONSULTATION STRATÉGIQUE</button>
+                    <button onclick="scrollToSection('contact')" class="premium-button text-white px-8 py-3 rounded-xl font-bold text-sm tracking-wide shadow-lg" 
+                            data-fr="CONSULTATION GRATUITE" data-en="FREE CONSULTATION">CONSULTATION GRATUITE</button>
                 </div>
                 
-                <button id="mobile-menu-btn" class="lg:hidden text-white p-2">
+                <button id="mobile-menu-btn" class="lg:hidden text-charcoal p-2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -234,563 +181,552 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="lg:hidden hidden glass-morphism border-t border-electric/20">
+        <div id="mobile-menu" class="lg:hidden hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
             <div class="px-4 py-6 space-y-4">
-                <a href="#solutions" class="block text-gray-300 hover:text-electric font-medium py-2" data-fr="Solutions" data-en="Solutions">Solutions</a>
-                <a href="#impact" class="block text-gray-300 hover:text-electric font-medium py-2" data-fr="Impact" data-en="Impact">Impact</a>
-                <a href="#methodology" class="block text-gray-300 hover:text-electric font-medium py-2" data-fr="Méthodologie" data-en="Methodology">Méthodologie</a>
-                <a href="#testimonials" class="block text-gray-300 hover:text-electric font-medium py-2" data-fr="Témoignages" data-en="Testimonials">Témoignages</a>
+                <a href="#solutions" class="block text-charcoal hover:text-gold font-medium py-2" data-fr="Solutions" data-en="Solutions">Solutions</a>
+                <a href="#results" class="block text-charcoal hover:text-gold font-medium py-2" data-fr="Résultats" data-en="Results">Résultats</a>
+                <a href="#process" class="block text-charcoal hover:text-gold font-medium py-2" data-fr="Processus" data-en="Process">Processus</a>
+                <a href="#testimonials" class="block text-charcoal hover:text-gold font-medium py-2" data-fr="Témoignages" data-en="Testimonials">Témoignages</a>
                 <div class="flex space-x-2 pt-4">
                     <button onclick="switchLanguage('fr')" class="lang-btn px-4 py-2 text-sm font-semibold rounded-lg" data-lang="fr">FR</button>
                     <button onclick="switchLanguage('en')" class="lang-btn px-4 py-2 text-sm font-semibold rounded-lg" data-lang="en">EN</button>
                 </div>
-                <button onclick="scrollToSection('contact')" class="w-full electric-button text-white px-6 py-3 rounded-xl font-bold mt-4" 
-                        data-fr="CONSULTATION STRATÉGIQUE" data-en="STRATEGIC CONSULTATION">CONSULTATION STRATÉGIQUE</button>
+                <button onclick="scrollToSection('contact')" class="w-full premium-button text-white px-6 py-3 rounded-xl font-bold mt-4" 
+                        data-fr="CONSULTATION GRATUITE" data-en="FREE CONSULTATION">CONSULTATION GRATUITE</button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-gradient pt-24 pb-20 relative overflow-hidden min-h-screen flex items-center">
-        <!-- Floating Orbs -->
-        <div class="floating-orb w-96 h-96 top-20 -right-48" style="animation-delay: 0s;"></div>
-        <div class="floating-orb w-64 h-64 bottom-20 -left-32" style="animation-delay: -3s;"></div>
-        <div class="floating-orb w-48 h-48 top-1/2 right-1/4" style="animation-delay: -6s;"></div>
+    <section class="hero-bg pt-24 pb-20 relative overflow-hidden min-h-screen flex items-center">
+        <div class="absolute inset-0 bg-gradient-to-br from-royal/90 via-charcoal/80 to-navy/90"></div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 right-10 w-20 h-20 bg-gold/20 rounded-full floating-element"></div>
+        <div class="absolute bottom-32 left-10 w-16 h-16 bg-gold/10 rounded-full floating-element" style="animation-delay: -2s;"></div>
+        <div class="absolute top-1/2 right-1/4 w-12 h-12 bg-gold/15 rounded-full floating-element" style="animation-delay: -4s;"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center">
-                <!-- Authority Badge -->
-                <div class="inline-flex items-center px-8 py-4 rounded-full trust-badge text-electric font-bold text-sm mb-8 animate-slide-up">
-                    <span class="w-3 h-3 bg-electric rounded-full mr-3 animate-pulse-glow"></span>
-                    <span data-fr="🏆 Partenaire de Confiance de 500+ Entreprises Fortune 500" data-en="🏆 Trusted Partner of 500+ Fortune 500 Companies">🏆 Partenaire de Confiance de 500+ Entreprises Fortune 500</span>
+                <!-- Trust Badge -->
+                <div class="inline-flex items-center px-6 py-3 rounded-full glass-effect text-gold font-semibold text-sm mb-8 animate-slideUp">
+                    <span class="w-3 h-3 bg-gold rounded-full mr-3 animate-pulse"></span>
+                    <span data-fr="🏆 Leader Mondial en Solutions IA" data-en="🏆 Global Leader in AI Solutions">🏆 Leader Mondial en Solutions IA</span>
                 </div>
                 
                 <!-- Main Headline -->
-                <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight animate-fade-in">
-                    <span data-fr="L'IA qui Transforme" data-en="AI That Transforms">L'IA qui Transforme</span><br>
-                    <span class="text-gradient" data-fr="Votre Vision en Réalité" data-en="Your Vision into Reality">Votre Vision en Réalité</span>
+                <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight text-shadow animate-fadeIn">
+                    <span data-fr="Révolutionnez Votre" data-en="Revolutionize Your">Révolutionnez Votre</span><br>
+                    <span class="stats-number" data-fr="Entreprise avec l'IA" data-en="Business with AI">Entreprise avec l'IA</span>
                 </h1>
                 
-                <!-- Power Statement -->
-                <p class="text-2xl md:text-3xl text-gray-300 mb-12 max-w-5xl mx-auto leading-relaxed animate-slide-up font-light" style="animation-delay: 0.3s"
-                   data-fr="Nous ne créons pas seulement de l'IA. Nous orchestrons des révolutions d'entreprise qui redéfinissent les industries entières."
-                   data-en="We don't just create AI. We orchestrate business revolutions that redefine entire industries.">
-                    Nous ne créons pas seulement de l'IA. Nous orchestrons des révolutions d'entreprise qui redéfinissent les industries entières.
+                <!-- Subheadline -->
+                <p class="text-xl md:text-2xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed animate-slideUp" style="animation-delay: 0.3s"
+                   data-fr="Transformez vos processus métier avec nos solutions d'intelligence artificielle de pointe. Rejoignez plus de 500 entreprises qui ont multiplié leur efficacité par 10."
+                   data-en="Transform your business processes with our cutting-edge artificial intelligence solutions. Join over 500 companies that have multiplied their efficiency by 10.">
+                    Transformez vos processus métier avec nos solutions d'intelligence artificielle de pointe. Rejoignez plus de 500 entreprises qui ont multiplié leur efficacité par 10.
                 </p>
                 
-                <!-- Impact Metrics -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 animate-scale-in" style="animation-delay: 0.6s">
-                    <div class="metric-card rounded-3xl p-6 text-center">
-                        <div class="text-4xl md:text-5xl font-bold impact-number mb-2">€127M+</div>
-                        <div class="text-gray-300 font-medium text-sm" data-fr="Valeur Créée" data-en="Value Created">Valeur Créée</div>
-                    </div>
-                    <div class="metric-card rounded-3xl p-6 text-center">
-                        <div class="text-4xl md:text-5xl font-bold impact-number mb-2">1,247%</div>
-                        <div class="text-gray-300 font-medium text-sm" data-fr="ROI Moyen" data-en="Average ROI">ROI Moyen</div>
-                    </div>
-                    <div class="metric-card rounded-3xl p-6 text-center">
-                        <div class="text-4xl md:text-5xl font-bold impact-number mb-2">47</div>
-                        <div class="text-gray-300 font-medium text-sm" data-fr="Pays" data-en="Countries">Pays</div>
-                    </div>
-                    <div class="metric-card rounded-3xl p-6 text-center">
-                        <div class="text-4xl md:text-5xl font-bold impact-number mb-2">99.7%</div>
-                        <div class="text-gray-300 font-medium text-sm" data-fr="Satisfaction" data-en="Satisfaction">Satisfaction</div>
-                    </div>
-                </div>
-                
                 <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up mb-16" style="animation-delay: 0.9s">
-                    <button onclick="scrollToSection('contact')" class="electric-button text-white px-16 py-6 rounded-xl font-bold text-xl tracking-wide electric-shadow hover:shadow-2xl transition-all duration-300"
-                            data-fr="DÉMARRER LA TRANSFORMATION" data-en="START TRANSFORMATION">DÉMARRER LA TRANSFORMATION</button>
-                    <button onclick="scrollToSection('impact')" class="glass-morphism text-white px-16 py-6 rounded-xl font-semibold text-xl border-2 border-electric/30 hover:border-electric transition-all duration-300"
-                            data-fr="Découvrir l'Impact" data-en="Discover Impact">Découvrir l'Impact</button>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slideUp mb-16" style="animation-delay: 0.6s">
+                    <button onclick="scrollToSection('contact')" class="premium-button text-white px-12 py-5 rounded-xl font-bold text-lg tracking-wide shadow-premium hover:shadow-2xl transition-all duration-300"
+                            data-fr="DÉMARRER MAINTENANT" data-en="GET STARTED NOW">DÉMARRER MAINTENANT</button>
+                    <button onclick="scrollToSection('results')" class="glass-effect text-white px-12 py-5 rounded-xl font-semibold text-lg border-2 border-white/30 hover:border-gold transition-all duration-300"
+                            data-fr="Voir les Résultats" data-en="View Results">Voir les Résultats</button>
                 </div>
                 
-                <!-- Social Proof -->
-                <div class="glass-morphism rounded-3xl p-8 max-w-6xl mx-auto animate-slide-up" style="animation-delay: 1.2s">
-                    <p class="text-gray-300 mb-6 text-lg font-medium"
-                       data-fr="Rejoignez les leaders visionnaires qui façonnent l'avenir :"
-                       data-en="Join the visionary leaders shaping the future:">
-                        Rejoignez les leaders visionnaires qui façonnent l'avenir :
-                    </p>
-                    <div class="grid grid-cols-2 md:grid-cols-5 gap-6 items-center opacity-70">
-                        <div class="bg-white/10 h-16 rounded-2xl flex items-center justify-center font-bold text-white text-sm">TechGlobal</div>
-                        <div class="bg-white/10 h-16 rounded-2xl flex items-center justify-center font-bold text-white text-sm">InnovaCorp</div>
-                        <div class="bg-white/10 h-16 rounded-2xl flex items-center justify-center font-bold text-white text-sm">FutureFlow</div>
-                        <div class="bg-white/10 h-16 rounded-2xl flex items-center justify-center font-bold text-white text-sm">DataVision</div>
-                        <div class="bg-white/10 h-16 rounded-2xl flex items-center justify-center font-bold text-white text-sm">NextGen</div>
+                <!-- Trust Indicators -->
+                <div class="glass-effect rounded-3xl p-8 max-w-6xl mx-auto animate-slideUp" style="animation-delay: 0.9s">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                        <div class="group">
+                            <div class="text-4xl md:text-5xl font-bold stats-number mb-2 group-hover:scale-110 transition-transform duration-300">500+</div>
+                            <div class="text-gray-300 font-medium" data-fr="Entreprises Clientes" data-en="Client Companies">Entreprises Clientes</div>
+                        </div>
+                        <div class="group">
+                            <div class="text-4xl md:text-5xl font-bold stats-number mb-2 group-hover:scale-110 transition-transform duration-300">€50M+</div>
+                            <div class="text-gray-300 font-medium" data-fr="Économies Générées" data-en="Savings Generated">Économies Générées</div>
+                        </div>
+                        <div class="group">
+                            <div class="text-4xl md:text-5xl font-bold stats-number mb-2 group-hover:scale-110 transition-transform duration-300">98%</div>
+                            <div class="text-gray-300 font-medium" data-fr="Taux de Satisfaction" data-en="Satisfaction Rate">Taux de Satisfaction</div>
+                        </div>
+                        <div class="group">
+                            <div class="text-4xl md:text-5xl font-bold stats-number mb-2 group-hover:scale-110 transition-transform duration-300">24/7</div>
+                            <div class="text-gray-300 font-medium" data-fr="Support Expert" data-en="Expert Support">Support Expert</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Vision Statement -->
-    <section class="py-20 bg-gradient-to-br from-platinum to-white text-midnight">
+    <!-- Value Proposition -->
+    <section class="py-20 bg-gradient-to-br from-platinum to-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="font-display text-4xl md:text-6xl font-bold text-steel mb-8"
-                    data-fr="Nous Ne Suivons Pas les Tendances."
-                    data-en="We Don't Follow Trends.">Nous Ne Suivons Pas les Tendances.</h2>
-                <h2 class="font-display text-4xl md:text-6xl font-bold text-gradient mb-12"
-                    data-fr="Nous Les Créons."
-                    data-en="We Create Them.">Nous Les Créons.</h2>
-                <p class="text-2xl text-gray-600 max-w-5xl mx-auto leading-relaxed"
-                   data-fr="Chaque solution que nous développons redéfinit les standards de l'industrie. Nos clients ne se contentent pas de survivre aux disruptions - ils les orchestrent."
-                   data-en="Every solution we develop redefines industry standards. Our clients don't just survive disruptions - they orchestrate them.">
-                    Chaque solution que nous développons redéfinit les standards de l'industrie. Nos clients ne se contentent pas de survivre aux disruptions - ils les orchestrent.
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-charcoal mb-6"
+                    data-fr="Pourquoi Choisir AxiomIQAI ?"
+                    data-en="Why Choose AxiomIQAI?">Pourquoi Choisir AxiomIQAI ?</h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto"
+                   data-fr="Nous ne vendons pas de la technologie, nous livrons des résultats mesurables"
+                   data-en="We don't sell technology, we deliver measurable results">
+                    Nous ne vendons pas de la technologie, nous livrons des résultats mesurables
                 </p>
             </div>
             
-            <div class="grid lg:grid-cols-3 gap-12">
-                <!-- Pillar 1 -->
-                <div class="text-center group">
-                    <div class="w-24 h-24 electric-gradient rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300 electric-shadow">
-                        <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Problem Side -->
+                <div class="space-y-8">
+                    <div class="bg-red-50 border-l-4 border-red-500 p-8 rounded-r-2xl card-hover">
+                        <h3 class="text-2xl font-bold text-red-800 mb-4 flex items-center">
+                            <span class="text-3xl mr-3">⚠️</span>
+                            <span data-fr="SANS IA" data-en="WITHOUT AI">SANS IA</span>
+                        </h3>
+                        <ul class="space-y-4 text-red-700 text-lg">
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-3 mt-1 text-xl">❌</span>
+                                <span data-fr="Processus manuels chronophages et sources d'erreurs" data-en="Time-consuming manual processes prone to errors">Processus manuels chronophages et sources d'erreurs</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-3 mt-1 text-xl">❌</span>
+                                <span data-fr="Coûts opérationnels qui explosent avec la croissance" data-en="Operational costs that explode with growth">Coûts opérationnels qui explosent avec la croissance</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-3 mt-1 text-xl">❌</span>
+                                <span data-fr="Décisions basées sur des données obsolètes" data-en="Decisions based on outdated data">Décisions basées sur des données obsolètes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-500 mr-3 mt-1 text-xl">❌</span>
+                                <span data-fr="Concurrence qui prend de l'avance" data-en="Competition gaining advantage">Concurrence qui prend de l'avance</span>
+                            </li>
+                        </ul>
                     </div>
-                    <h3 class="text-3xl font-bold text-steel mb-6"
-                        data-fr="Excellence Absolue"
-                        data-en="Absolute Excellence">Excellence Absolue</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed"
-                       data-fr="Nous livrons uniquement des solutions qui dépassent les attentes les plus élevées. Chaque projet est une œuvre d'art technologique."
-                       data-en="We deliver only solutions that exceed the highest expectations. Every project is a technological masterpiece.">
-                        Nous livrons uniquement des solutions qui dépassent les attentes les plus élevées. Chaque projet est une œuvre d'art technologique.
-                    </p>
                 </div>
-
-                <!-- Pillar 2 -->
-                <div class="text-center group">
-                    <div class="w-24 h-24 electric-gradient rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300 electric-shadow">
-                        <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
-                        </svg>
+                
+                <!-- Solution Side -->
+                <div class="space-y-8">
+                    <div class="bg-emerald-50 border-l-4 border-emerald-500 p-8 rounded-r-2xl card-hover">
+                        <h3 class="text-2xl font-bold text-emerald-800 mb-4 flex items-center">
+                            <span class="text-3xl mr-3">🚀</span>
+                            <span data-fr="AVEC AxiomIQAI" data-en="WITH AxiomIQAI">AVEC AxiomIQAI</span>
+                        </h3>
+                        <ul class="space-y-4 text-emerald-700 text-lg">
+                            <li class="flex items-start">
+                                <span class="text-emerald-500 mr-3 mt-1 text-xl">✅</span>
+                                <span data-fr="Automatisation intelligente 24/7 sans erreur" data-en="Intelligent 24/7 automation without errors">Automatisation intelligente 24/7 sans erreur</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-emerald-500 mr-3 mt-1 text-xl">✅</span>
+                                <span data-fr="Réduction des coûts jusqu'à 80%" data-en="Cost reduction up to 80%">Réduction des coûts jusqu'à 80%</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-emerald-500 mr-3 mt-1 text-xl">✅</span>
+                                <span data-fr="Insights en temps réel pour des décisions éclairées" data-en="Real-time insights for informed decisions">Insights en temps réel pour des décisions éclairées</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-emerald-500 mr-3 mt-1 text-xl">✅</span>
+                                <span data-fr="Avantage concurrentiel durable" data-en="Sustainable competitive advantage">Avantage concurrentiel durable</span>
+                            </li>
+                        </ul>
                     </div>
-                    <h3 class="text-3xl font-bold text-steel mb-6"
-                        data-fr="Innovation Disruptive"
-                        data-en="Disruptive Innovation">Innovation Disruptive</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed"
-                       data-fr="Nous ne nous contentons pas d'améliorer l'existant. Nous réinventons complètement la façon dont les entreprises opèrent."
-                       data-en="We don't just improve what exists. We completely reinvent how businesses operate.">
-                        Nous ne nous contentons pas d'améliorer l'existant. Nous réinventons complètement la façon dont les entreprises opèrent.
-                    </p>
-                </div>
-
-                <!-- Pillar 3 -->
-                <div class="text-center group">
-                    <div class="w-24 h-24 electric-gradient rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300 electric-shadow">
-                        <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-3xl font-bold text-steel mb-6"
-                        data-fr="Impact Mesurable"
-                        data-en="Measurable Impact">Impact Mesurable</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed"
-                       data-fr="Chaque euro investi génère un retour exceptionnel. Nos résultats parlent d'eux-mêmes et transforment des vies."
-                       data-en="Every euro invested generates exceptional returns. Our results speak for themselves and transform lives.">
-                        Chaque euro investi génère un retour exceptionnel. Nos résultats parlent d'eux-mêmes et transforment des vies.
-                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Solutions Section -->
-    <section id="solutions" class="py-20 hero-gradient">
+    <section id="solutions" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="font-display text-4xl md:text-6xl font-bold text-white mb-8"
-                    data-fr="Solutions qui Redéfinissent l'Impossible"
-                    data-en="Solutions That Redefine the Impossible">Solutions qui Redéfinissent l'Impossible</h2>
-                <p class="text-xl text-gray-300 max-w-4xl mx-auto"
-                   data-fr="Chaque technologie que nous déployons est conçue pour créer un avantage concurrentiel insurmontable"
-                   data-en="Every technology we deploy is designed to create an insurmountable competitive advantage">
-                    Chaque technologie que nous déployons est conçue pour créer un avantage concurrentiel insurmontable
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-charcoal mb-6"
+                    data-fr="Nos Solutions IA de Pointe"
+                    data-en="Our Cutting-Edge AI Solutions">Nos Solutions IA de Pointe</h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto"
+                   data-fr="Technologies éprouvées par les leaders mondiaux, adaptées à vos besoins spécifiques"
+                   data-en="Technologies proven by global leaders, adapted to your specific needs">
+                    Technologies éprouvées par les leaders mondiaux, adaptées à vos besoins spécifiques
                 </p>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Solution 1 -->
-                <div class="glass-morphism rounded-3xl p-8 hover-lift group">
-                    <div class="w-20 h-20 electric-gradient rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 electric-shadow">
-                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
+                <div class="group bg-white rounded-3xl p-8 shadow-premium hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gold card-hover">
+                    <div class="w-16 h-16 gradient-gold rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-6 group-hover:text-electric transition-colors"
-                        data-fr="Hyper-Automatisation Cognitive"
-                        data-en="Cognitive Hyper-Automation">Hyper-Automatisation Cognitive</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed"
-                       data-fr="L'IA qui pense, apprend et évolue. Automatisation de processus complexes avec une intelligence adaptative qui surpasse l'expertise humaine."
-                       data-en="AI that thinks, learns and evolves. Complex process automation with adaptive intelligence that surpasses human expertise.">
-                        L'IA qui pense, apprend et évolue. Automatisation de processus complexes avec une intelligence adaptative qui surpasse l'expertise humaine.
+                    <h3 class="text-2xl font-bold text-charcoal mb-4 group-hover:text-gold transition-colors"
+                        data-fr="Automatisation Intelligente"
+                        data-en="Intelligent Automation">Automatisation Intelligente</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed"
+                       data-fr="Automatisez vos processus métier complexes avec une IA qui apprend et s'améliore continuellement."
+                       data-en="Automate your complex business processes with AI that learns and continuously improves.">
+                        Automatisez vos processus métier complexes avec une IA qui apprend et s'améliore continuellement.
                     </p>
-                    <div class="space-y-3">
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
-                            <span data-fr="Réduction des coûts jusqu'à 94%" data-en="Cost reduction up to 94%">Réduction des coûts jusqu'à 94%</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
-                            <span data-fr="Précision de 99.97%" data-en="99.97% accuracy">Précision de 99.97%</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
-                            <span data-fr="Déploiement en 48h" data-en="48h deployment">Déploiement en 48h</span>
-                        </div>
-                    </div>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                            <span data-fr="RPA + Machine Learning" data-en="RPA + Machine Learning">RPA + Machine Learning</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                            <span data-fr="Traitement du langage naturel" data-en="Natural language processing">Traitement du langage naturel</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                            <span data-fr="Vision par ordinateur" data-en="Computer vision">Vision par ordinateur</span>
+                        </li>
+                    </ul>
                 </div>
 
                 <!-- Solution 2 -->
-                <div class="glass-morphism rounded-3xl p-8 hover-lift group">
-                    <div class="w-20 h-20 electric-gradient rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 electric-shadow">
-                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <div class="group bg-white rounded-3xl p-8 shadow-premium hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gold card-hover">
+                    <div class="w-16 h-16 gradient-gold rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-charcoal mb-4 group-hover:text-gold transition-colors"
+                        data-fr="Analytics Prédictifs"
+                        data-en="Predictive Analytics">Analytics Prédictifs</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed"
+                       data-fr="Anticipez les tendances et optimisez vos décisions avec des modèles prédictifs avancés."
+                       data-en="Anticipate trends and optimize your decisions with advanced predictive models.">
+                        Anticipez les tendances et optimisez vos décisions avec des modèles prédictifs avancés.
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                            <span data-fr="Prévisions de demande" data-en="Demand forecasting">Prévisions de demande</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                            <span data-fr="Détection d'anomalies" data-en="Anomaly detection">Détection d'anomalies</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                            <span data-fr="Optimisation des prix" data-en="Price optimization">Optimisation des prix</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Solution 3 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-premium hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gold card-hover">
+                    <div class="w-16 h-16 gradient-gold rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-charcoal mb-4 group-hover:text-gold transition-colors"
+                        data-fr="Assistant IA Conversationnel"
+                        data-en="Conversational AI Assistant">Assistant IA Conversationnel</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed"
+                       data-fr="Révolutionnez votre service client avec des assistants IA capables de gérer 90% des demandes."
+                       data-en="Revolutionize your customer service with AI assistants capable of handling 90% of requests.">
+                        Révolutionnez votre service client avec des assistants IA capables de gérer 90% des demandes.
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                            <span data-fr="Chatbots multilingues" data-en="Multilingual chatbots">Chatbots multilingues</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                            <span data-fr="Assistants vocaux" data-en="Voice assistants">Assistants vocaux</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                            <span data-fr="Intégration omnicanale" data-en="Omnichannel integration">Intégration omnicanale</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Solution 4 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-premium hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gold card-hover">
+                    <div class="w-16 h-16 gradient-gold rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-charcoal mb-4 group-hover:text-gold transition-colors"
+                        data-fr="Cybersécurité IA"
+                        data-en="AI Cybersecurity">Cybersécurité IA</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed"
+                       data-fr="Protégez votre entreprise avec une sécurité adaptative qui apprend des nouvelles menaces."
+                       data-en="Protect your business with adaptive security that learns from new threats.">
+                        Protégez votre entreprise avec une sécurité adaptative qui apprend des nouvelles menaces.
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                            <span data-fr="Détection de menaces en temps réel" data-en="Real-time threat detection">Détection de menaces en temps réel</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                            <span data-fr="Réponse automatisée aux incidents" data-en="Automated incident response">Réponse automatisée aux incidents</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                            <span data-fr="Conformité réglementaire" data-en="Regulatory compliance">Conformité réglementaire</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Solution 5 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-premium hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gold card-hover">
+                    <div class="w-16 h-16 gradient-gold rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-charcoal mb-4 group-hover:text-gold transition-colors"
+                        data-fr="Optimisation Supply Chain"
+                        data-en="Supply Chain Optimization">Optimisation Supply Chain</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed"
+                       data-fr="Optimisez votre chaîne d'approvisionnement avec une IA qui prédit et s'adapte aux fluctuations."
+                       data-en="Optimize your supply chain with AI that predicts and adapts to fluctuations.">
+                        Optimisez votre chaîne d'approvisionnement avec une IA qui prédit et s'adapte aux fluctuations.
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                            <span data-fr="Gestion intelligente des stocks" data-en="Intelligent inventory management">Gestion intelligente des stocks</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                            <span data-fr="Optimisation des routes" data-en="Route optimization">Optimisation des routes</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                            <span data-fr="Prédiction de la demande" data-en="Demand prediction">Prédiction de la demande</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Solution 6 -->
+                <div class="group bg-white rounded-3xl p-8 shadow-premium hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gold card-hover">
+                    <div class="w-16 h-16 gradient-gold rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
                             <path fill-rule="evenodd" d="M4 5a2 2 0 012-2v1a1 1 0 102 0V3a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm2.5 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm2.45.707a1.5 1.5 0 00-2.9 0l-.707.707a1 1 0 101.414 1.414L8 13.414l1.243 1.243a1 1 0 001.414-1.414l-.707-.707z" clip-rule="evenodd"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-white mb-6 group-hover:text-electric transition-colors"
-                        data-fr="Intelligence Prédictive Quantique"
-                        data-en="Quantum Predictive Intelligence">Intelligence Prédictive Quantique</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed"
-                       data-fr="Anticipez l'avenir avec une précision révolutionnaire. Modèles prédictifs qui transforment l'incertitude en avantage stratégique."
-                       data-en="Anticipate the future with revolutionary precision. Predictive models that transform uncertainty into strategic advantage.">
-                        Anticipez l'avenir avec une précision révolutionnaire. Modèles prédictifs qui transforment l'incertitude en avantage stratégique.
+                    <h3 class="text-2xl font-bold text-charcoal mb-4 group-hover:text-gold transition-colors"
+                        data-fr="Formation & Accompagnement"
+                        data-en="Training & Support">Formation & Accompagnement</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed"
+                       data-fr="Transformez vos équipes en experts IA avec notre programme de formation personnalisé."
+                       data-en="Transform your teams into AI experts with our personalized training program.">
+                        Transformez vos équipes en experts IA avec notre programme de formation personnalisé.
                     </p>
-                    <div class="space-y-3">
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
-                            <span data-fr="Prédictions 18 mois à l'avance" data-en="18-month advance predictions">Prédictions 18 mois à l'avance</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
-                            <span data-fr="Fiabilité de 96.8%" data-en="96.8% reliability">Fiabilité de 96.8%</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
-                            <span data-fr="ROI moyen de 2,340%" data-en="Average ROI of 2,340%">ROI moyen de 2,340%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Solution 3 -->
-                <div class="glass-morphism rounded-3xl p-8 hover-lift group">
-                    <div class="w-20 h-20 electric-gradient rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 electric-shadow">
-                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-6 group-hover:text-electric transition-colors"
-                        data-fr="Écosystème IA Conversationnel"
-                        data-en="Conversational AI Ecosystem">Écosystème IA Conversationnel</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed"
-                       data-fr="Assistants IA qui comprennent, ressentent et agissent. Expérience client révolutionnaire qui génère loyauté et croissance explosive."
-                       data-en="AI assistants that understand, feel and act. Revolutionary customer experience that generates loyalty and explosive growth.">
-                        Assistants IA qui comprennent, ressentent et agissent. Expérience client révolutionnaire qui génère loyauté et croissance explosive.
-                    </p>
-                    <div class="space-y-3">
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
-                            <span data-fr="Satisfaction client +340%" data-en="Customer satisfaction +340%">Satisfaction client +340%</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
-                            <span data-fr="Résolution instantanée 97%" data-en="97% instant resolution">Résolution instantanée 97%</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
-                            <span data-fr="Disponibilité 24/7/365" data-en="24/7/365 availability">Disponibilité 24/7/365</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Solution 4 -->
-                <div class="glass-morphism rounded-3xl p-8 hover-lift group">
-                    <div class="w-20 h-20 electric-gradient rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 electric-shadow">
-                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-6 group-hover:text-electric transition-colors"
-                        data-fr="Bouclier Cyber Adaptatif"
-                        data-en="Adaptive Cyber Shield">Bouclier Cyber Adaptatif</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed"
-                       data-fr="Sécurité qui évolue plus vite que les menaces. Protection proactive qui anticipe et neutralise les cyberattaques avant qu'elles n'existent."
-                       data-en="Security that evolves faster than threats. Proactive protection that anticipates and neutralizes cyberattacks before they exist.">
-                        Sécurité qui évolue plus vite que les menaces. Protection proactive qui anticipe et neutralise les cyberattaques avant qu'elles n'existent.
-                    </p>
-                    <div class="space-y-3">
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
-                            <span data-fr="Détection en 0.003 secondes" data-en="0.003 second detection">Détection en 0.003 secondes</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
-                            <span data-fr="Prévention 99.99%" data-en="99.99% prevention">Prévention 99.99%</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
-                            <span data-fr="Conformité automatique" data-en="Automatic compliance">Conformité automatique</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Solution 5 -->
-                <div class="glass-morphism rounded-3xl p-8 hover-lift group">
-                    <div class="w-20 h-20 electric-gradient rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 electric-shadow">
-                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-6 group-hover:text-electric transition-colors"
-                        data-fr="Supply Chain Omnisciente"
-                        data-en="Omniscient Supply Chain">Supply Chain Omnisciente</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed"
-                       data-fr="Visibilité totale et contrôle absolu. Orchestration intelligente qui transforme la complexité logistique en avantage concurrentiel."
-                       data-en="Total visibility and absolute control. Intelligent orchestration that transforms logistical complexity into competitive advantage.">
-                        Visibilité totale et contrôle absolu. Orchestration intelligente qui transforme la complexité logistique en avantage concurrentiel.
-                    </p>
-                    <div class="space-y-3">
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
-                            <span data-fr="Optimisation temps réel" data-en="Real-time optimization">Optimisation temps réel</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
-                            <span data-fr="Réduction coûts 67%" data-en="67% cost reduction">Réduction coûts 67%</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
-                            <span data-fr="Zéro rupture de stock" data-en="Zero stockouts">Zéro rupture de stock</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Solution 6 -->
-                <div class="glass-morphism rounded-3xl p-8 hover-lift group">
-                    <div class="w-20 h-20 electric-gradient rounded-3xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 electric-shadow">
-                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-6 group-hover:text-electric transition-colors"
-                        data-fr="Académie Transformation IA"
-                        data-en="AI Transformation Academy">Académie Transformation IA</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed"
-                       data-fr="Évolution humaine accélérée. Programme de transformation qui crée des leaders IA capables de révolutionner leurs industries."
-                       data-en="Accelerated human evolution. Transformation program that creates AI leaders capable of revolutionizing their industries.">
-                        Évolution humaine accélérée. Programme de transformation qui crée des leaders IA capables de révolutionner leurs industries.
-                    </p>
-                    <div class="space-y-3">
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
-                            <span data-fr="Certification mondiale" data-en="Global certification">Certification mondiale</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                            <span data-fr="Certification professionnelle" data-en="Professional certification">Certification professionnelle</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
                             <span data-fr="Mentorat personnalisé" data-en="Personalized mentoring">Mentorat personnalisé</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <span class="w-2 h-2 bg-electric rounded-full mr-3"></span>
-                            <span data-fr="Réseau élite mondial" data-en="Global elite network">Réseau élite mondial</span>
-                        </div>
-                    </div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-gold rounded-full mr-3"></span>
+                            <span data-fr="Support continu 24/7" data-en="24/7 continuous support">Support continu 24/7</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Impact Section -->
-    <section id="impact" class="py-20 bg-gradient-to-br from-platinum to-white text-midnight">
+    <!-- Results Section -->
+    <section id="results" class="py-20 gradient-royal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="font-display text-4xl md:text-6xl font-bold text-steel mb-8"
-                    data-fr="L'Impact qui Change Tout"
-                    data-en="The Impact That Changes Everything">L'Impact qui Change Tout</h2>
-                <p class="text-2xl text-gray-600 max-w-5xl mx-auto"
-                   data-fr="Nos clients ne se contentent pas de croître - ils dominent leurs marchés et redéfinissent leurs industries"
-                   data-en="Our clients don't just grow - they dominate their markets and redefine their industries">
-                    Nos clients ne se contentent pas de croître - ils dominent leurs marchés et redéfinissent leurs industries
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6"
+                    data-fr="Résultats Prouvés et Mesurables"
+                    data-en="Proven and Measurable Results">Résultats Prouvés et Mesurables</h2>
+                <p class="text-xl text-gray-200 max-w-4xl mx-auto"
+                   data-fr="Nos clients obtiennent des résultats exceptionnels dès les premiers mois"
+                   data-en="Our clients achieve exceptional results from the first months">
+                    Nos clients obtiennent des résultats exceptionnels dès les premiers mois
                 </p>
             </div>
             
-            <!-- Mega Stats -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-                <div class="text-center group">
-                    <div class="text-6xl md:text-7xl font-bold text-gradient mb-4 group-hover:scale-110 transition-transform duration-300">€127M+</div>
-                    <h3 class="text-2xl font-bold text-steel mb-2"
-                        data-fr="Valeur Créée"
-                        data-en="Value Created">Valeur Créée</h3>
-                    <p class="text-gray-600"
-                       data-fr="Pour nos clients en 24 mois"
-                       data-en="For our clients in 24 months">Pour nos clients en 24 mois</p>
-                </div>
-
-                <div class="text-center group">
-                    <div class="text-6xl md:text-7xl font-bold text-gradient mb-4 group-hover:scale-110 transition-transform duration-300">1,247%</div>
-                    <h3 class="text-2xl font-bold text-steel mb-2"
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div class="glass-effect rounded-3xl p-8 text-center card-hover">
+                    <div class="text-5xl md:text-6xl font-bold stats-number mb-4">847%</div>
+                    <h3 class="text-xl font-semibold text-white mb-2"
                         data-fr="ROI Moyen"
                         data-en="Average ROI">ROI Moyen</h3>
-                    <p class="text-gray-600"
-                       data-fr="Retour sur investissement garanti"
-                       data-en="Guaranteed return on investment">Retour sur investissement garanti</p>
+                    <p class="text-gray-300"
+                       data-fr="Retour sur investissement en 12 mois"
+                       data-en="Return on investment in 12 months">Retour sur investissement en 12 mois</p>
                 </div>
 
-                <div class="text-center group">
-                    <div class="text-6xl md:text-7xl font-bold text-gradient mb-4 group-hover:scale-110 transition-transform duration-300">94%</div>
-                    <h3 class="text-2xl font-bold text-steel mb-2"
+                <div class="glass-effect rounded-3xl p-8 text-center card-hover">
+                    <div class="text-5xl md:text-6xl font-bold stats-number mb-4">89%</div>
+                    <h3 class="text-xl font-semibold text-white mb-2"
                         data-fr="Réduction Coûts"
                         data-en="Cost Reduction">Réduction Coûts</h3>
-                    <p class="text-gray-600"
-                       data-fr="Économies opérationnelles moyennes"
-                       data-en="Average operational savings">Économies opérationnelles moyennes</p>
+                    <p class="text-gray-300"
+                       data-fr="Diminution des coûts opérationnels"
+                       data-en="Operational cost reduction">Diminution des coûts opérationnels</p>
                 </div>
 
-                <div class="text-center group">
-                    <div class="text-6xl md:text-7xl font-bold text-gradient mb-4 group-hover:scale-110 transition-transform duration-300">47</div>
-                    <h3 class="text-2xl font-bold text-steel mb-2"
-                        data-fr="Pays"
-                        data-en="Countries">Pays</h3>
-                    <p class="text-gray-600"
-                       data-fr="Présence mondiale établie"
-                       data-en="Established global presence">Présence mondiale établie</p>
+                <div class="glass-effect rounded-3xl p-8 text-center card-hover">
+                    <div class="text-5xl md:text-6xl font-bold stats-number mb-4">12x</div>
+                    <h3 class="text-xl font-semibold text-white mb-2"
+                        data-fr="Gain Productivité"
+                        data-en="Productivity Gain">Gain Productivité</h3>
+                    <p class="text-gray-300"
+                       data-fr="Amélioration de l'efficacité"
+                       data-en="Efficiency improvement">Amélioration de l'efficacité</p>
+                </div>
+
+                <div class="glass-effect rounded-3xl p-8 text-center card-hover">
+                    <div class="text-5xl md:text-6xl font-bold stats-number mb-4">99.8%</div>
+                    <h3 class="text-xl font-semibold text-white mb-2"
+                        data-fr="Précision IA"
+                        data-en="AI Accuracy">Précision IA</h3>
+                    <p class="text-gray-300"
+                       data-fr="Taux de précision de nos modèles"
+                       data-en="Accuracy rate of our models">Taux de précision de nos modèles</p>
                 </div>
             </div>
 
-            <!-- Success Story -->
-            <div class="bg-gradient-to-r from-steel to-midnight rounded-3xl p-12 text-white premium-shadow">
-                <div class="text-center mb-12">
-                    <h3 class="font-display text-4xl font-bold text-gradient mb-6"
-                        data-fr="Transformation Légendaire : De la Crise au Leadership Mondial"
-                        data-en="Legendary Transformation: From Crisis to Global Leadership">Transformation Légendaire : De la Crise au Leadership Mondial</h3>
-                    <p class="text-xl text-gray-300"
-                       data-fr="Comment nous avons sauvé une entreprise de la faillite pour en faire le leader de son secteur"
-                       data-en="How we saved a company from bankruptcy to make it the leader in its sector">
-                        Comment nous avons sauvé une entreprise de la faillite pour en faire le leader de son secteur
+            <!-- Case Study -->
+            <div class="glass-effect rounded-3xl p-12 max-w-6xl mx-auto">
+                <div class="text-center mb-8">
+                    <h3 class="font-display text-3xl font-bold stats-number mb-4"
+                        data-fr="Étude de Cas : Transformation Digitale Complète"
+                        data-en="Case Study: Complete Digital Transformation">Étude de Cas : Transformation Digitale Complète</h3>
+                    <p class="text-gray-200 text-lg"
+                       data-fr="Comment nous avons révolutionné les opérations d'une entreprise manufacturière"
+                       data-en="How we revolutionized a manufacturing company's operations">
+                        Comment nous avons révolutionné les opérations d'une entreprise manufacturière
                     </p>
                 </div>
                 
-                <div class="grid md:grid-cols-3 gap-12 text-center">
+                <div class="grid md:grid-cols-3 gap-8 text-center">
                     <div class="group">
-                        <div class="text-5xl font-bold text-gradient mb-4 group-hover:scale-110 transition-transform duration-300">€47M</div>
-                        <div class="text-white font-bold text-lg mb-2"
-                             data-fr="Revenus Générés"
-                             data-en="Revenue Generated">Revenus Générés</div>
-                        <div class="text-gray-300"
-                             data-fr="En 18 mois seulement"
-                             data-en="In just 18 months">En 18 mois seulement</div>
+                        <div class="text-4xl font-bold stats-number mb-2 group-hover:scale-110 transition-transform duration-300">€3.2M</div>
+                        <div class="text-white font-semibold mb-1"
+                             data-fr="Économies Annuelles"
+                             data-en="Annual Savings">Économies Annuelles</div>
+                        <div class="text-gray-300 text-sm"
+                             data-fr="Réduction des coûts de production"
+                             data-en="Production cost reduction">Réduction des coûts de production</div>
                     </div>
                     <div class="group">
-                        <div class="text-5xl font-bold text-gradient mb-4 group-hover:scale-110 transition-transform duration-300">2,847%</div>
-                        <div class="text-white font-bold text-lg mb-2"
-                             data-fr="Croissance Explosive"
-                             data-en="Explosive Growth">Croissance Explosive</div>
-                        <div class="text-gray-300"
-                             data-fr="Augmentation de la productivité"
-                             data-en="Productivity increase">Augmentation de la productivité</div>
+                        <div class="text-4xl font-bold stats-number mb-2 group-hover:scale-110 transition-transform duration-300">450%</div>
+                        <div class="text-white font-semibold mb-1"
+                             data-fr="Croissance Efficacité"
+                             data-en="Efficiency Growth">Croissance Efficacité</div>
+                        <div class="text-gray-300 text-sm"
+                             data-fr="Amélioration des processus"
+                             data-en="Process improvement">Amélioration des processus</div>
                     </div>
                     <div class="group">
-                        <div class="text-5xl font-bold text-gradient mb-4 group-hover:scale-110 transition-transform duration-300">#1</div>
-                        <div class="text-white font-bold text-lg mb-2"
-                             data-fr="Position Marché"
-                             data-en="Market Position">Position Marché</div>
-                        <div class="text-gray-300"
-                             data-fr="Leader mondial incontesté"
-                             data-en="Undisputed global leader">Leader mondial incontesté</div>
+                        <div class="text-4xl font-bold stats-number mb-2 group-hover:scale-110 transition-transform duration-300">4</div>
+                        <div class="text-white font-semibold mb-1"
+                             data-fr="Mois ROI"
+                             data-en="Months ROI">Mois ROI</div>
+                        <div class="text-gray-300 text-sm"
+                             data-fr="Retour sur investissement"
+                             data-en="Return on investment">Retour sur investissement</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Methodology Section -->
-    <section id="methodology" class="py-20 hero-gradient">
+    <!-- Process Section -->
+    <section id="process" class="py-20 bg-gradient-to-br from-platinum to-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="font-display text-4xl md:text-6xl font-bold text-white mb-8"
-                    data-fr="La Méthode qui Garantit le Succès"
-                    data-en="The Method That Guarantees Success">La Méthode qui Garantit le Succès</h2>
-                <p class="text-xl text-gray-300 max-w-5xl mx-auto"
-                   data-fr="Notre processus révolutionnaire transforme les visions les plus audacieuses en réalités mesurables"
-                   data-en="Our revolutionary process transforms the boldest visions into measurable realities">
-                    Notre processus révolutionnaire transforme les visions les plus audacieuses en réalités mesurables
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-charcoal mb-6"
+                    data-fr="Notre Méthodologie Éprouvée"
+                    data-en="Our Proven Methodology">Notre Méthodologie Éprouvée</h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto"
+                   data-fr="Un processus structuré en 5 étapes pour garantir votre succès"
+                   data-en="A structured 5-step process to guarantee your success">
+                    Un processus structuré en 5 étapes pour garantir votre succès
                 </p>
             </div>
             
             <div class="grid md:grid-cols-5 gap-8">
-                <!-- Phase 1 -->
-                <div class="text-center group">
-                    <div class="glass-morphism rounded-3xl p-8 hover-lift h-full">
-                        <div class="w-20 h-20 electric-gradient rounded-full flex items-center justify-center mx-auto mb-8 text-3xl font-bold text-white group-hover:scale-110 transition-transform duration-300 electric-shadow">1</div>
-                        <h3 class="text-2xl font-bold text-white mb-6"
-                            data-fr="Vision Stratégique"
-                            data-en="Strategic Vision">Vision Stratégique</h3>
-                        <p class="text-gray-300 leading-relaxed"
-                           data-fr="Analyse profonde de votre écosystème et définition d'une vision transformationnelle qui redéfinit votre marché"
-                           data-en="Deep analysis of your ecosystem and definition of a transformational vision that redefines your market">
-                            Analyse profonde de votre écosystème et définition d'une vision transformationnelle qui redéfinit votre marché
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <div class="bg-white rounded-3xl p-8 shadow-premium card-hover text-center h-full">
+                        <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-white">1</div>
+                        <h3 class="text-xl font-bold text-charcoal mb-4"
+                            data-fr="Audit & Analyse"
+                            data-en="Audit & Analysis">Audit & Analyse</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed"
+                           data-fr="Évaluation complète de vos processus actuels et identification des opportunités d'amélioration"
+                           data-en="Complete evaluation of your current processes and identification of improvement opportunities">
+                            Évaluation complète de vos processus actuels et identification des opportunités d'amélioration
                         </p>
                     </div>
                 </div>
 
-                <!-- Phase 2 -->
-                <div class="text-center group">
-                    <div class="glass-morphism rounded-3xl p-8 hover-lift h-full">
-                        <div class="w-20 h-20 electric-gradient rounded-full flex items-center justify-center mx-auto mb-8 text-3xl font-bold text-white group-hover:scale-110 transition-transform duration-300 electric-shadow">2</div>
-                        <h3 class="text-2xl font-bold text-white mb-6"
-                            data-fr="Architecture Révolutionnaire"
-                            data-en="Revolutionary Architecture">Architecture Révolutionnaire</h3>
-                        <p class="text-gray-300 leading-relaxed"
-                           data-fr="Conception d'une infrastructure IA qui dépasse les limites technologiques actuelles et anticipe l'avenir"
-                           data-en="Design of an AI infrastructure that exceeds current technological limits and anticipates the future">
-                            Conception d'une infrastructure IA qui dépasse les limites technologiques actuelles et anticipe l'avenir
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <div class="bg-white rounded-3xl p-8 shadow-premium card-hover text-center h-full">
+                        <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-white">2</div>
+                        <h3 class="text-xl font-bold text-charcoal mb-4"
+                            data-fr="Stratégie IA"
+                            data-en="AI Strategy">Stratégie IA</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed"
+                           data-fr="Conception d'une roadmap personnalisée avec objectifs mesurables et timeline précise"
+                           data-en="Design of a personalized roadmap with measurable objectives and precise timeline">
+                            Conception d'une roadmap personnalisée avec objectifs mesurables et timeline précise
                         </p>
                     </div>
                 </div>
 
-                <!-- Phase 3 -->
-                <div class="text-center group">
-                    <div class="glass-morphism rounded-3xl p-8 hover-lift h-full">
-                        <div class="w-20 h-20 electric-gradient rounded-full flex items-center justify-center mx-auto mb-8 text-3xl font-bold text-white group-hover:scale-110 transition-transform duration-300 electric-shadow">3</div>
-                        <h3 class="text-2xl font-bold text-white mb-6"
-                            data-fr="Déploiement Éclair"
-                            data-en="Lightning Deployment">Déploiement Éclair</h3>
-                        <p class="text-gray-300 leading-relaxed"
-                           data-fr="Implémentation ultra-rapide avec des résultats visibles dès les premières 48 heures de mise en service"
-                           data-en="Ultra-fast implementation with visible results from the first 48 hours of operation">
-                            Implémentation ultra-rapide avec des résultats visibles dès les premières 48 heures de mise en service
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <div class="bg-white rounded-3xl p-8 shadow-premium card-hover text-center h-full">
+                        <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-white">3</div>
+                        <h3 class="text-xl font-bold text-charcoal mb-4"
+                            data-fr="Développement"
+                            data-en="Development">Développement</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed"
+                           data-fr="Création et déploiement de solutions IA sur mesure avec tests rigoureux"
+                           data-en="Creation and deployment of custom AI solutions with rigorous testing">
+                            Création et déploiement de solutions IA sur mesure avec tests rigoureux
                         </p>
                     </div>
                 </div>
 
-                <!-- Phase 4 -->
-                <div class="text-center group">
-                    <div class="glass-morphism rounded-3xl p-8 hover-lift h-full">
-                        <div class="w-20 h-20 electric-gradient rounded-full flex items-center justify-center mx-auto mb-8 text-3xl font-bold text-white group-hover:scale-110 transition-transform duration-300 electric-shadow">4</div>
-                        <h3 class="text-2xl font-bold text-white mb-6"
-                            data-fr="Évolution Adaptative"
-                            data-en="Adaptive Evolution">Évolution Adaptative</h3>
-                        <p class="text-gray-300 leading-relaxed"
-                           data-fr="Transformation continue de vos équipes en experts IA avec un accompagnement personnalisé d'élite"
-                           data-en="Continuous transformation of your teams into AI experts with personalized elite support">
-                            Transformation continue de vos équipes en experts IA avec un accompagnement personnalisé d'élite
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <div class="bg-white rounded-3xl p-8 shadow-premium card-hover text-center h-full">
+                        <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-white">4</div>
+                        <h3 class="text-xl font-bold text-charcoal mb-4"
+                            data-fr="Formation"
+                            data-en="Training">Formation</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed"
+                           data-fr="Formation complète de vos équipes et accompagnement pour une adoption réussie"
+                           data-en="Complete training of your teams and support for successful adoption">
+                            Formation complète de vos équipes et accompagnement pour une adoption réussie
                         </p>
                     </div>
                 </div>
 
-                <!-- Phase 5 -->
-                <div class="text-center group">
-                    <div class="glass-morphism rounded-3xl p-8 hover-lift h-full">
-                        <div class="w-20 h-20 electric-gradient rounded-full flex items-center justify-center mx-auto mb-8 text-3xl font-bold text-white group-hover:scale-110 transition-transform duration-300 electric-shadow">5</div>
-                        <h3 class="text-2xl font-bold text-white mb-6"
-                            data-fr="Domination Marché"
-                            data-en="Market Domination">Domination Marché</h3>
-                        <p class="text-gray-300 leading-relaxed"
-                           data-fr="Optimisation perpétuelle qui maintient votre avance concurrentielle et assure votre leadership durable"
-                           data-en="Perpetual optimization that maintains your competitive edge and ensures your lasting leadership">
-                            Optimisation perpétuelle qui maintient votre avance concurrentielle et assure votre leadership durable
+                <!-- Step 5 -->
+                <div class="process-step">
+                    <div class="bg-white rounded-3xl p-8 shadow-premium card-hover text-center h-full">
+                        <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-white">5</div>
+                        <h3 class="text-xl font-bold text-charcoal mb-4"
+                            data-fr="Optimisation"
+                            data-en="Optimization">Optimisation</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed"
+                           data-fr="Monitoring continu et amélioration des performances pour maximiser le ROI"
+                           data-en="Continuous monitoring and performance improvement to maximize ROI">
+                            Monitoring continu et amélioration des performances pour maximiser le ROI
                         </p>
                     </div>
                 </div>
@@ -799,338 +735,308 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-gradient-to-br from-platinum to-white text-midnight">
+    <section id="testimonials" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="font-display text-4xl md:text-6xl font-bold text-steel mb-8"
-                    data-fr="Ils Ont Révolutionné Leur Destin"
-                    data-en="They Revolutionized Their Destiny">Ils Ont Révolutionné Leur Destin</h2>
-                <p class="text-2xl text-gray-600 max-w-5xl mx-auto"
-                   data-fr="Les témoignages de leaders qui ont transformé leurs visions en empires"
-                   data-en="Testimonials from leaders who transformed their visions into empires">
-                    Les témoignages de leaders qui ont transformé leurs visions en empires
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-charcoal mb-6"
+                    data-fr="Témoignages de Nos Clients"
+                    data-en="Client Testimonials">Témoignages de Nos Clients</h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto"
+                   data-fr="Découvrez comment nos solutions ont transformé leur business"
+                   data-en="Discover how our solutions transformed their business">
+                    Découvrez comment nos solutions ont transformé leur business
                 </p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8 mb-16">
                 <!-- Testimonial 1 -->
-                <div class="testimonial-premium rounded-3xl p-8 hover-lift">
-                    <div class="flex items-center mb-8">
-                        <div class="w-20 h-20 electric-gradient rounded-full flex items-center justify-center mr-6 electric-shadow">
-                            <span class="text-white font-bold text-xl">MC</span>
+                <div class="testimonial-card rounded-3xl p-8 shadow-premium">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold text-lg">MC</span>
                         </div>
                         <div>
-                            <div class="font-bold text-steel text-xl">Marie Chen</div>
-                            <div class="text-gray-600 font-medium">CEO, TechGlobal</div>
-                            <div class="text-gold text-2xl">★★★★★</div>
+                            <div class="font-bold text-charcoal text-lg">Marie Dubois</div>
+                            <div class="text-gray-600">CEO, TechInnovate</div>
+                            <div class="text-gold text-lg">★★★★★</div>
                         </div>
                     </div>
-                    <blockquote class="text-gray-700 text-lg leading-relaxed mb-6"
-                                data-fr="« AxiomIQAI n'a pas seulement transformé notre entreprise - ils ont révolutionné notre industrie entière. En 8 mois, nous sommes passés de challenger à leader mondial incontesté. »"
-                                data-en="« AxiomIQAI didn't just transform our company - they revolutionized our entire industry. In 8 months, we went from challenger to undisputed global leader. »">
-                        « AxiomIQAI n'a pas seulement transformé notre entreprise - ils ont révolutionné notre industrie entière. En 8 mois, nous sommes passés de challenger à leader mondial incontesté. »
+                    <blockquote class="text-gray-700 italic text-lg leading-relaxed"
+                                data-fr="« AxiomIQAI a transformé notre entreprise. En 6 mois, nous avons automatisé 80% de nos processus et économisé €2.1M. Leur expertise est exceptionnelle. »"
+                                data-en="« AxiomIQAI transformed our company. In 6 months, we automated 80% of our processes and saved €2.1M. Their expertise is exceptional. »">
+                        « AxiomIQAI a transformé notre entreprise. En 6 mois, nous avons automatisé 80% de nos processus et économisé €2.1M. Leur expertise est exceptionnelle. »
                     </blockquote>
-                    <div class="bg-gradient-to-r from-electric/10 to-electric/5 rounded-2xl p-4">
-                        <div class="text-3xl font-bold text-gradient">€23.7M</div>
-                        <div class="text-gray-600 font-medium"
-                             data-fr="Revenus supplémentaires générés"
-                             data-en="Additional revenue generated">Revenus supplémentaires générés</div>
-                    </div>
                 </div>
 
                 <!-- Testimonial 2 -->
-                <div class="testimonial-premium rounded-3xl p-8 hover-lift">
-                    <div class="flex items-center mb-8">
-                        <div class="w-20 h-20 electric-gradient rounded-full flex items-center justify-center mr-6 electric-shadow">
-                            <span class="text-white font-bold text-xl">JR</span>
+                <div class="testimonial-card rounded-3xl p-8 shadow-premium">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold text-lg">PL</span>
                         </div>
                         <div>
-                            <div class="font-bold text-steel text-xl">James Rodriguez</div>
-                            <div class="text-gray-600 font-medium">CTO, InnovaCorp</div>
-                            <div class="text-gold text-2xl">★★★★★</div>
+                            <div class="font-bold text-charcoal text-lg">Pierre Laurent</div>
+                            <div class="text-gray-600">CTO, DataCorp</div>
+                            <div class="text-gold text-lg">★★★★★</div>
                         </div>
                     </div>
-                    <blockquote class="text-gray-700 text-lg leading-relaxed mb-6"
-                                data-fr="« L'expertise d'AxiomIQAI dépasse tout ce que j'ai vu en 20 ans de carrière. Ils ne livrent pas des solutions - ils créent des miracles technologiques. ROI de 2,340% ! »"
-                                data-en="« AxiomIQAI's expertise exceeds anything I've seen in 20 years of career. They don't deliver solutions - they create technological miracles. 2,340% ROI! »">
-                        « L'expertise d'AxiomIQAI dépasse tout ce que j'ai vu en 20 ans de carrière. Ils ne livrent pas des solutions - ils créent des miracles technologiques. ROI de 2,340% ! »
+                    <blockquote class="text-gray-700 italic text-lg leading-relaxed"
+                                data-fr="« L'accompagnement d'AxiomIQAI est remarquable. Ils ont non seulement livré une solution technique parfaite, mais ont aussi formé nos équipes. ROI de 650% ! »"
+                                data-en="« AxiomIQAI's support is remarkable. They not only delivered a perfect technical solution, but also trained our teams. 650% ROI! »">
+                        « L'accompagnement d'AxiomIQAI est remarquable. Ils ont non seulement livré une solution technique parfaite, mais ont aussi formé nos équipes. ROI de 650% ! »
                     </blockquote>
-                    <div class="bg-gradient-to-r from-electric/10 to-electric/5 rounded-2xl p-4">
-                        <div class="text-3xl font-bold text-gradient">2,340%</div>
-                        <div class="text-gray-600 font-medium"
-                             data-fr="Retour sur investissement"
-                             data-en="Return on investment">Retour sur investissement</div>
-                    </div>
                 </div>
 
                 <!-- Testimonial 3 -->
-                <div class="testimonial-premium rounded-3xl p-8 hover-lift">
-                    <div class="flex items-center mb-8">
-                        <div class="w-20 h-20 electric-gradient rounded-full flex items-center justify-center mr-6 electric-shadow">
-                            <span class="text-white font-bold text-xl">SL</span>
+                <div class="testimonial-card rounded-3xl p-8 shadow-premium">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 gradient-gold rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold text-lg">SB</span>
                         </div>
                         <div>
-                            <div class="font-bold text-steel text-xl">Sarah Laurent</div>
-                            <div class="text-gray-600 font-medium">Présidente, FutureFlow</div>
-                            <div class="text-gold text-2xl">★★★★★</div>
+                            <div class="font-bold text-charcoal text-lg">Sophie Bernard</div>
+                            <div class="text-gray-600">Directrice, LogiFlow</div>
+                            <div class="text-gold text-lg">★★★★★</div>
                         </div>
                     </div>
-                    <blockquote class="text-gray-700 text-lg leading-relaxed mb-6"
-                                data-fr="« Grâce à AxiomIQAI, nous prédisons l'avenir de notre marché avec une précision de 96.8%. Nous ne subissons plus les changements - nous les créons. »"
-                                data-en="« Thanks to AxiomIQAI, we predict our market's future with 96.8% accuracy. We no longer undergo changes - we create them. »">
-                        « Grâce à AxiomIQAI, nous prédisons l'avenir de notre marché avec une précision de 96.8%. Nous ne subissons plus les changements - nous les créons. »
+                    <blockquote class="text-gray-700 italic text-lg leading-relaxed"
+                                data-fr="« Grâce à AxiomIQAI, notre supply chain est maintenant prédictive. Nous anticipons les problèmes avant qu'ils n'arrivent. Un vrai game changer ! »"
+                                data-en="« Thanks to AxiomIQAI, our supply chain is now predictive. We anticipate problems before they happen. A real game changer! »">
+                        « Grâce à AxiomIQAI, notre supply chain est maintenant prédictive. Nous anticipons les problèmes avant qu'ils n'arrivent. Un vrai game changer ! »
                     </blockquote>
-                    <div class="bg-gradient-to-r from-electric/10 to-electric/5 rounded-2xl p-4">
-                        <div class="text-3xl font-bold text-gradient">96.8%</div>
-                        <div class="text-gray-600 font-medium"
-                             data-fr="Précision prédictive"
-                             data-en="Predictive accuracy">Précision prédictive</div>
-                    </div>
                 </div>
             </div>
 
-            <!-- Elite Network -->
-            <div class="bg-gradient-to-r from-steel to-midnight rounded-3xl p-12 text-white premium-shadow">
-                <h3 class="font-display text-3xl font-bold text-center text-gradient mb-8"
-                    data-fr="Réseau Élite Mondial - Leaders qui Façonnent l'Avenir"
-                    data-en="Global Elite Network - Leaders Shaping the Future">Réseau Élite Mondial - Leaders qui Façonnent l'Avenir</h3>
-                <div class="grid grid-cols-2 md:grid-cols-6 gap-6 items-center opacity-80">
-                    <div class="bg-white/10 h-20 rounded-2xl flex items-center justify-center font-bold text-white">TechGlobal</div>
-                    <div class="bg-white/10 h-20 rounded-2xl flex items-center justify-center font-bold text-white">InnovaCorp</div>
-                    <div class="bg-white/10 h-20 rounded-2xl flex items-center justify-center font-bold text-white">FutureFlow</div>
-                    <div class="bg-white/10 h-20 rounded-2xl flex items-center justify-center font-bold text-white">DataVision</div>
-                    <div class="bg-white/10 h-20 rounded-2xl flex items-center justify-center font-bold text-white">NextGen</div>
-                    <div class="bg-white/10 h-20 rounded-2xl flex items-center justify-center font-bold text-white">EliteAI</div>
+            <!-- Trust Logos -->
+            <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-3xl p-12">
+                <h3 class="text-2xl font-bold text-charcoal text-center mb-8"
+                    data-fr="Ils Nous Font Confiance"
+                    data-en="They Trust Us">Ils Nous Font Confiance</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
+                    <div class="bg-white h-16 rounded-xl flex items-center justify-center font-bold text-gray-600 shadow-md">TechInnovate</div>
+                    <div class="bg-white h-16 rounded-xl flex items-center justify-center font-bold text-gray-600 shadow-md">DataCorp</div>
+                    <div class="bg-white h-16 rounded-xl flex items-center justify-center font-bold text-gray-600 shadow-md">LogiFlow</div>
+                    <div class="bg-white h-16 rounded-xl flex items-center justify-center font-bold text-gray-600 shadow-md">InnovatePlus</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA Section -->
-    <section class="py-20 hero-gradient">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <!-- CTA Section -->
+    <section class="py-20 gradient-royal">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="mb-12">
-                <h2 class="font-display text-4xl md:text-6xl font-bold text-white mb-8"
-                    data-fr="Votre Transformation Commence Maintenant"
-                    data-en="Your Transformation Starts Now">Votre Transformation Commence Maintenant</h2>
-                <p class="text-2xl text-gray-300 mb-8"
-                   data-fr="Rejoignez l'élite mondiale des leaders visionnaires qui redéfinissent l'impossible"
-                   data-en="Join the global elite of visionary leaders who redefine the impossible">
-                    Rejoignez l'élite mondiale des leaders visionnaires qui redéfinissent l'impossible
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6"
+                    data-fr="Prêt à Révolutionner Votre Entreprise ?"
+                    data-en="Ready to Revolutionize Your Business?">Prêt à Révolutionner Votre Entreprise ?</h2>
+                <p class="text-xl text-gray-200 mb-8"
+                   data-fr="Rejoignez les leaders qui ont déjà fait le choix de l'excellence avec l'IA"
+                   data-en="Join the leaders who have already chosen excellence with AI">
+                    Rejoignez les leaders qui ont déjà fait le choix de l'excellence avec l'IA
                 </p>
             </div>
             
-            <div class="glass-morphism rounded-3xl p-8 mb-12 max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-3 gap-8 text-center">
+            <div class="glass-effect rounded-3xl p-8 mb-8 max-w-3xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-6 text-center">
                     <div>
-                        <div class="text-4xl font-bold text-gradient mb-3">🎯</div>
-                        <div class="text-white font-bold text-lg"
-                             data-fr="Consultation Stratégique Exclusive"
-                             data-en="Exclusive Strategic Consultation">Consultation Stratégique Exclusive</div>
-                        <div class="text-gray-300 text-sm"
-                             data-fr="Analyse personnalisée de votre potentiel"
-                             data-en="Personalized analysis of your potential">Analyse personnalisée de votre potentiel</div>
+                        <div class="text-3xl font-bold stats-number mb-2">✅</div>
+                        <div class="text-white font-semibold"
+                             data-fr="Consultation Gratuite"
+                             data-en="Free Consultation">Consultation Gratuite</div>
                     </div>
                     <div>
-                        <div class="text-4xl font-bold text-gradient mb-3">⚡</div>
-                        <div class="text-white font-bold text-lg"
+                        <div class="text-3xl font-bold stats-number mb-2">🚀</div>
+                        <div class="text-white font-semibold"
                              data-fr="Résultats Garantis"
                              data-en="Guaranteed Results">Résultats Garantis</div>
-                        <div class="text-gray-300 text-sm"
-                             data-fr="ROI minimum de 500% ou remboursement"
-                             data-en="Minimum 500% ROI or refund">ROI minimum de 500% ou remboursement</div>
                     </div>
                     <div>
-                        <div class="text-4xl font-bold text-gradient mb-3">🏆</div>
-                        <div class="text-white font-bold text-lg"
-                             data-fr="Accès Réseau Élite"
-                             data-en="Elite Network Access">Accès Réseau Élite</div>
-                        <div class="text-gray-300 text-sm"
-                             data-fr="Connexions avec les leaders mondiaux"
-                             data-en="Connections with global leaders">Connexions avec les leaders mondiaux</div>
+                        <div class="text-3xl font-bold stats-number mb-2">🏆</div>
+                        <div class="text-white font-semibold"
+                             data-fr="Support Premium"
+                             data-en="Premium Support">Support Premium</div>
                     </div>
                 </div>
             </div>
 
-            <button onclick="scrollToSection('contact')" class="electric-button text-white px-20 py-8 rounded-xl text-3xl font-bold electric-shadow hover:shadow-2xl transition-all duration-300 mb-8"
-                    data-fr="RÉSERVER MA CONSULTATION EXCLUSIVE"
-                    data-en="BOOK MY EXCLUSIVE CONSULTATION">RÉSERVER MA CONSULTATION EXCLUSIVE</button>
-            <p class="text-gray-300 text-lg"
-               data-fr="🔒 Consultation 100% confidentielle • Engagement sur résultats • Transformation garantie"
-               data-en="🔒 100% confidential consultation • Results commitment • Guaranteed transformation">
-                🔒 Consultation 100% confidentielle • Engagement sur résultats • Transformation garantie
+            <button onclick="scrollToSection('contact')" class="premium-button text-white px-16 py-6 rounded-xl text-2xl font-bold shadow-premium hover:shadow-2xl transition-all duration-300 mb-6"
+                    data-fr="COMMENCER MAINTENANT"
+                    data-en="START NOW">COMMENCER MAINTENANT</button>
+            <p class="text-gray-300 text-sm"
+               data-fr="🔒 Consultation 100% gratuite • Aucun engagement • Résultats mesurables"
+               data-en="🔒 100% free consultation • No commitment • Measurable results">
+                🔒 Consultation 100% gratuite • Aucun engagement • Résultats mesurables
             </p>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gradient-to-br from-platinum to-white text-midnight">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" class="py-20 bg-gradient-to-br from-platinum to-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="font-display text-4xl md:text-6xl font-bold text-steel mb-8"
-                    data-fr="Accédez à l'Excellence Absolue"
-                    data-en="Access Absolute Excellence">Accédez à l'Excellence Absolue</h2>
-                <p class="text-2xl text-gray-600"
-                   data-fr="Réservez votre consultation stratégique exclusive avec nos experts mondiaux"
-                   data-en="Book your exclusive strategic consultation with our global experts">
-                    Réservez votre consultation stratégique exclusive avec nos experts mondiaux
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-charcoal mb-6"
+                    data-fr="Contactez Nos Experts IA"
+                    data-en="Contact Our AI Experts">Contactez Nos Experts IA</h2>
+                <p class="text-xl text-gray-600"
+                   data-fr="Discutons de votre projet et découvrons ensemble le potentiel de l'IA pour votre entreprise"
+                   data-en="Let's discuss your project and discover together the potential of AI for your business">
+                    Discutons de votre projet et découvrons ensemble le potentiel de l'IA pour votre entreprise
                 </p>
             </div>
 
-            <div class="bg-white rounded-3xl premium-shadow p-12">
-                <div class="grid lg:grid-cols-2 gap-16">
+            <div class="bg-white rounded-3xl shadow-premium p-12">
+                <div class="grid lg:grid-cols-2 gap-12">
                     <!-- Contact Info -->
                     <div>
-                        <h3 class="font-display text-4xl font-bold text-steel mb-8"
-                            data-fr="Connectons-nous"
-                            data-en="Let's Connect">Connectons-nous</h3>
+                        <h3 class="font-display text-3xl font-bold text-charcoal mb-8"
+                            data-fr="Parlons de Votre Vision"
+                            data-en="Let's Talk About Your Vision">Parlons de Votre Vision</h3>
                         
-                        <div class="space-y-8 mb-12">
+                        <div class="space-y-6 mb-8">
                             <div class="flex items-start">
-                                <div class="w-16 h-16 electric-gradient rounded-3xl flex items-center justify-center mr-6 flex-shrink-0 electric-shadow">
-                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <div class="w-14 h-14 gradient-gold rounded-2xl flex items-center justify-center mr-6 flex-shrink-0">
+                                    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                                         <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-steel text-xl">Email Exclusif</h4>
-                                    <p class="text-gray-600 text-xl">contact@axiomiqai.dpdns.org</p>
-                                    <p class="text-sm text-gray-500 mt-2"
-                                       data-fr="Réponse prioritaire sous 30 minutes"
-                                       data-en="Priority response within 30 minutes">Réponse prioritaire sous 30 minutes</p>
+                                    <h4 class="font-bold text-charcoal text-lg">Email</h4>
+                                    <p class="text-gray-600 text-lg">contact@axiomiqai.dpdns.org</p>
+                                    <p class="text-sm text-gray-500 mt-1"
+                                       data-fr="Réponse garantie sous 2h"
+                                       data-en="Response guaranteed within 2h">Réponse garantie sous 2h</p>
                                 </div>
                             </div>
                             
                             <div class="flex items-start">
-                                <div class="w-16 h-16 electric-gradient rounded-3xl flex items-center justify-center mr-6 flex-shrink-0 electric-shadow">
-                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <div class="w-14 h-14 gradient-gold rounded-2xl flex items-center justify-center mr-6 flex-shrink-0">
+                                    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-steel text-xl"
-                                        data-fr="Ligne Directe VIP"
-                                        data-en="VIP Direct Line">Ligne Directe VIP</h4>
-                                    <p class="text-gray-600 text-xl">+33 1 85 14 92 67</p>
-                                    <p class="text-sm text-gray-500 mt-2"
-                                       data-fr="Accès direct aux décideurs 24/7"
-                                       data-en="Direct access to decision makers 24/7">Accès direct aux décideurs 24/7</p>
+                                    <h4 class="font-bold text-charcoal text-lg"
+                                        data-fr="Téléphone"
+                                        data-en="Phone">Téléphone</h4>
+                                    <p class="text-gray-600 text-lg">+33 1 85 14 92 67</p>
+                                    <p class="text-sm text-gray-500 mt-1"
+                                       data-fr="Disponible 9h-18h (CET)"
+                                       data-en="Available 9am-6pm (CET)">Disponible 9h-18h (CET)</p>
                                 </div>
                             </div>
                             
                             <div class="flex items-start">
-                                <div class="w-16 h-16 electric-gradient rounded-3xl flex items-center justify-center mr-6 flex-shrink-0 electric-shadow">
-                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <div class="w-14 h-14 gradient-gold rounded-2xl flex items-center justify-center mr-6 flex-shrink-0">
+                                    <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
                                     </svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-steel text-xl"
-                                        data-fr="Siège Mondial"
-                                        data-en="Global Headquarters">Siège Mondial</h4>
+                                    <h4 class="font-bold text-charcoal text-lg"
+                                        data-fr="Adresse"
+                                        data-en="Address">Adresse</h4>
                                     <p class="text-gray-600"
-                                       data-fr="Paris, France<br>47 bureaux dans le monde"
-                                       data-en="Paris, France<br>47 offices worldwide">Paris, France<br>47 bureaux dans le monde</p>
+                                       data-fr="Paris, France<br>Bureaux dans le monde entier"
+                                       data-en="Paris, France<br>Offices worldwide">Paris, France<br>Bureaux dans le monde entier</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="bg-gradient-to-r from-electric/10 to-electric/5 rounded-3xl p-8 border-2 border-electric/20">
-                            <h4 class="font-bold text-steel mb-4 flex items-center text-xl">
-                                <span class="text-3xl mr-4">🏆</span>
-                                <span data-fr="Garantie Excellence Absolue" data-en="Absolute Excellence Guarantee">Garantie Excellence Absolue</span>
+                        <div class="bg-gradient-to-r from-gold/10 to-gold/5 rounded-2xl p-6 border border-gold/20">
+                            <h4 class="font-bold text-charcoal mb-3 flex items-center">
+                                <span class="text-2xl mr-3">🏆</span>
+                                <span data-fr="Garantie de Satisfaction" data-en="Satisfaction Guarantee">Garantie de Satisfaction</span>
                             </h4>
-                            <p class="text-gray-700 leading-relaxed"
-                               data-fr="Si nos solutions ne dépassent pas vos attentes les plus élevées et ne génèrent pas un ROI minimum de 500%, nous travaillons gratuitement jusqu'à satisfaction totale."
-                               data-en="If our solutions don't exceed your highest expectations and don't generate a minimum 500% ROI, we work for free until total satisfaction.">
-                                Si nos solutions ne dépassent pas vos attentes les plus élevées et ne génèrent pas un ROI minimum de 500%, nous travaillons gratuitement jusqu'à satisfaction totale.
+                            <p class="text-gray-700 text-sm"
+                               data-fr="Si nos solutions n'atteignent pas les objectifs convenus, nous travaillons gratuitement jusqu'à satisfaction complète."
+                               data-en="If our solutions don't meet the agreed objectives, we work for free until complete satisfaction.">
+                                Si nos solutions n'atteignent pas les objectifs convenus, nous travaillons gratuitement jusqu'à satisfaction complète.
                             </p>
                         </div>
                     </div>
 
                     <!-- Contact Form -->
                     <div>
-                        <h3 class="font-display text-4xl font-bold text-steel mb-8"
-                            data-fr="Réservez Votre Consultation"
-                            data-en="Book Your Consultation">Réservez Votre Consultation</h3>
+                        <h3 class="font-display text-3xl font-bold text-charcoal mb-8"
+                            data-fr="Demandez Votre Consultation"
+                            data-en="Request Your Consultation">Demandez Votre Consultation</h3>
                         
                         <form class="space-y-6" onsubmit="handleFormSubmit(event)">
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div>
-                                    <label class="block text-sm font-bold text-steel mb-3"
+                                    <label class="block text-sm font-semibold text-charcoal mb-2"
                                            data-fr="Prénom *"
                                            data-en="First Name *">Prénom *</label>
-                                    <input type="text" required class="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-electric focus:border-electric transition-all duration-300 text-lg">
+                                    <input type="text" required class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-gold focus:border-gold transition-all duration-300">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-bold text-steel mb-3"
+                                    <label class="block text-sm font-semibold text-charcoal mb-2"
                                            data-fr="Nom *"
                                            data-en="Last Name *">Nom *</label>
-                                    <input type="text" required class="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-electric focus:border-electric transition-all duration-300 text-lg">
+                                    <input type="text" required class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-gold focus:border-gold transition-all duration-300">
                                 </div>
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-bold text-steel mb-3"
-                                       data-fr="Email Exécutif *"
-                                       data-en="Executive Email *">Email Exécutif *</label>
-                                <input type="email" required class="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-electric focus:border-electric transition-all duration-300 text-lg">
+                                <label class="block text-sm font-semibold text-charcoal mb-2"
+                                       data-fr="Email Professionnel *"
+                                       data-en="Professional Email *">Email Professionnel *</label>
+                                <input type="email" required class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-gold focus:border-gold transition-all duration-300">
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-bold text-steel mb-3"
-                                       data-fr="Entreprise / Organisation *"
-                                       data-en="Company / Organization *">Entreprise / Organisation *</label>
-                                <input type="text" required class="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-electric focus:border-electric transition-all duration-300 text-lg">
+                                <label class="block text-sm font-semibold text-charcoal mb-2"
+                                       data-fr="Entreprise *"
+                                       data-en="Company *">Entreprise *</label>
+                                <input type="text" required class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-gold focus:border-gold transition-all duration-300">
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-bold text-steel mb-3"
-                                       data-fr="Poste / Fonction"
-                                       data-en="Position / Role">Poste / Fonction</label>
-                                <input type="text" class="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-electric focus:border-electric transition-all duration-300 text-lg">
+                                <label class="block text-sm font-semibold text-charcoal mb-2"
+                                       data-fr="Téléphone"
+                                       data-en="Phone">Téléphone</label>
+                                <input type="tel" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-gold focus:border-gold transition-all duration-300">
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-bold text-steel mb-3"
-                                       data-fr="Secteur d'Excellence"
-                                       data-en="Excellence Sector">Secteur d'Excellence</label>
-                                <select class="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-electric focus:border-electric transition-all duration-300 text-lg" id="industry-select">
-                                    <option value="" data-fr="Sélectionnez votre domaine..." data-en="Select your domain...">Sélectionnez votre domaine...</option>
-                                    <option value="manufacturing" data-fr="Industrie & Manufacturing" data-en="Industry & Manufacturing">Industrie & Manufacturing</option>
-                                    <option value="finance" data-fr="Finance & Services Bancaires" data-en="Finance & Banking Services">Finance & Services Bancaires</option>
-                                    <option value="retail" data-fr="Commerce & Distribution" data-en="Retail & Distribution">Commerce & Distribution</option>
-                                    <option value="healthcare" data-fr="Santé & Biotechnologies" data-en="Healthcare & Biotechnology">Santé & Biotechnologies</option>
-                                    <option value="logistics" data-fr="Logistique & Supply Chain" data-en="Logistics & Supply Chain">Logistique & Supply Chain</option>
-                                    <option value="tech" data-fr="Technologie & Innovation" data-en="Technology & Innovation">Technologie & Innovation</option>
-                                    <option value="energy" data-fr="Énergie & Environnement" data-en="Energy & Environment">Énergie & Environnement</option>
-                                    <option value="other" data-fr="Autre secteur d'excellence" data-en="Other excellence sector">Autre secteur d'excellence</option>
+                                <label class="block text-sm font-semibold text-charcoal mb-2"
+                                       data-fr="Secteur d'Activité"
+                                       data-en="Industry">Secteur d'Activité</label>
+                                <select class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-gold focus:border-gold transition-all duration-300" id="industry-select">
+                                    <option value="" data-fr="Sélectionnez..." data-en="Select...">Sélectionnez...</option>
+                                    <option value="manufacturing" data-fr="Industrie / Manufacturing" data-en="Manufacturing">Industrie / Manufacturing</option>
+                                    <option value="finance" data-fr="Finance / Banque" data-en="Finance / Banking">Finance / Banque</option>
+                                    <option value="retail" data-fr="Commerce / Retail" data-en="Retail">Commerce / Retail</option>
+                                    <option value="healthcare" data-fr="Santé" data-en="Healthcare">Santé</option>
+                                    <option value="logistics" data-fr="Logistique" data-en="Logistics">Logistique</option>
+                                    <option value="tech" data-fr="Technologie" data-en="Technology">Technologie</option>
+                                    <option value="other" data-fr="Autre" data-en="Other">Autre</option>
                                 </select>
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-bold text-steel mb-3"
-                                       data-fr="Vision Transformationnelle"
-                                       data-en="Transformational Vision">Vision Transformationnelle</label>
-                                <textarea rows="4" class="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-electric focus:border-electric transition-all duration-300 text-lg" 
+                                <label class="block text-sm font-semibold text-charcoal mb-2"
+                                       data-fr="Décrivez Votre Projet IA"
+                                       data-en="Describe Your AI Project">Décrivez Votre Projet IA</label>
+                                <textarea rows="4" class="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-gold focus:border-gold transition-all duration-300" 
                                           id="project-textarea"
-                                          data-fr-placeholder="Décrivez votre vision et vos ambitions les plus audacieuses..."
-                                          data-en-placeholder="Describe your vision and most audacious ambitions..."
-                                          placeholder="Décrivez votre vision et vos ambitions les plus audacieuses..."></textarea>
+                                          data-fr-placeholder="Quels sont vos objectifs ? Quels processus souhaitez-vous automatiser ?"
+                                          data-en-placeholder="What are your objectives? Which processes would you like to automate?"
+                                          placeholder="Quels sont vos objectifs ? Quels processus souhaitez-vous automatiser ?"></textarea>
                             </div>
                             
-                            <button type="submit" class="w-full electric-button text-white px-8 py-6 rounded-2xl text-2xl font-bold electric-shadow hover:shadow-2xl transition-all duration-300"
-                                    data-fr="RÉSERVER MA CONSULTATION EXCLUSIVE"
-                                    data-en="BOOK MY EXCLUSIVE CONSULTATION">
-                                RÉSERVER MA CONSULTATION EXCLUSIVE
+                            <button type="submit" class="w-full premium-button text-white px-8 py-5 rounded-xl text-xl font-bold shadow-premium hover:shadow-2xl transition-all duration-300"
+                                    data-fr="DEMANDER MA CONSULTATION GRATUITE"
+                                    data-en="REQUEST MY FREE CONSULTATION">
+                                DEMANDER MA CONSULTATION GRATUITE
                             </button>
                         </form>
                         
-                        <p class="text-center text-sm text-gray-600 mt-6"
-                           data-fr="🔒 Confidentialité absolue garantie • Consultation stratégique gratuite • Engagement sur résultats"
-                           data-en="🔒 Absolute confidentiality guaranteed • Free strategic consultation • Results commitment">
-                            🔒 Confidentialité absolue garantie • Consultation stratégique gratuite • Engagement sur résultats
+                        <p class="text-center text-sm text-gray-600 mt-4"
+                           data-fr="🔒 Vos données sont protégées • Consultation 100% gratuite • Aucun engagement"
+                           data-en="🔒 Your data is protected • 100% free consultation • No commitment">
+                            🔒 Vos données sont protégées • Consultation 100% gratuite • Aucun engagement
                         </p>
                     </div>
                 </div>
@@ -1139,31 +1045,31 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-midnight text-white py-20">
+    <footer class="bg-charcoal text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-12 mb-16">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
                 <div class="md:col-span-2">
-                    <div class="flex items-center mb-8">
-                        <div class="w-16 h-16 electric-gradient rounded-3xl flex items-center justify-center mr-6 electric-shadow">
-                            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 gradient-gold rounded-2xl flex items-center justify-center mr-4">
+                            <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
                         </div>
-                        <span class="text-4xl font-display font-bold">AxiomIQAI</span>
+                        <span class="text-3xl font-display font-bold">AxiomIQAI</span>
                     </div>
-                    <p class="text-gray-300 mb-8 max-w-lg text-xl leading-relaxed"
-                       data-fr="Nous ne créons pas seulement de l'IA. Nous orchestrons des révolutions qui transforment les visions en empires et redéfinissent l'avenir de l'humanité."
-                       data-en="We don't just create AI. We orchestrate revolutions that transform visions into empires and redefine humanity's future.">
-                        Nous ne créons pas seulement de l'IA. Nous orchestrons des révolutions qui transforment les visions en empires et redéfinissent l'avenir de l'humanité.
+                    <p class="text-gray-300 mb-6 max-w-md text-lg leading-relaxed"
+                       data-fr="Votre partenaire de confiance pour la transformation digitale par l'intelligence artificielle. Ensemble, construisons l'avenir de votre entreprise."
+                       data-en="Your trusted partner for digital transformation through artificial intelligence. Together, let's build the future of your business.">
+                        Votre partenaire de confiance pour la transformation digitale par l'intelligence artificielle. Ensemble, construisons l'avenir de votre entreprise.
                     </p>
-                    <div class="flex space-x-6">
-                        <a href="#" class="w-14 h-14 glass-morphism rounded-2xl flex items-center justify-center hover:bg-electric transition-colors duration-300">
-                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-gray-700 rounded-xl flex items-center justify-center hover:bg-gold transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
                             </svg>
                         </a>
-                        <a href="#" class="w-14 h-14 glass-morphism rounded-2xl flex items-center justify-center hover:bg-electric transition-colors duration-300">
-                            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                        <a href="#" class="w-12 h-12 bg-gray-700 rounded-xl flex items-center justify-center hover:bg-gold transition-colors duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                             </svg>
                         </a>
@@ -1171,46 +1077,44 @@
                 </div>
                 
                 <div>
-                    <h4 class="font-bold text-2xl mb-8 text-gradient"
-                        data-fr="Solutions Révolutionnaires"
-                        data-en="Revolutionary Solutions">Solutions Révolutionnaires</h4>
-                    <ul class="space-y-4 text-gray-300 text-lg">
-                        <li><a href="#" class="hover:text-electric transition-colors duration-300"
-                               data-fr="Hyper-Automatisation"
-                               data-en="Hyper-Automation">Hyper-Automatisation</a></li>
-                        <li><a href="#" class="hover:text-electric transition-colors duration-300"
-                               data-fr="Intelligence Prédictive"
-                               data-en="Predictive Intelligence">Intelligence Prédictive</a></li>
-                        <li><a href="#" class="hover:text-electric transition-colors duration-300"
-                               data-fr="IA Conversationnelle"
-                               data-en="Conversational AI">IA Conversationnelle</a></li>
-                        <li><a href="#" class="hover:text-electric transition-colors duration-300"
-                               data-fr="Cybersécurité Adaptative"
-                               data-en="Adaptive Cybersecurity">Cybersécurité Adaptative</a></li>
+                    <h4 class="font-bold text-xl mb-6"
+                        data-fr="Solutions"
+                        data-en="Solutions">Solutions</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#" class="hover:text-gold transition-colors duration-300"
+                               data-fr="Automatisation IA"
+                               data-en="AI Automation">Automatisation IA</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors duration-300"
+                               data-fr="Analytics Prédictifs"
+                               data-en="Predictive Analytics">Analytics Prédictifs</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors duration-300"
+                               data-fr="Assistant IA"
+                               data-en="AI Assistant">Assistant IA</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors duration-300"
+                               data-fr="Cybersécurité IA"
+                               data-en="AI Cybersecurity">Cybersécurité IA</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h4 class="font-bold text-2xl mb-8 text-gradient"
-                        data-fr="Contact Exclusif"
-                        data-en="Exclusive Contact">Contact Exclusif</h4>
-                    <ul class="space-y-4 text-gray-300 text-lg">
+                    <h4 class="font-bold text-xl mb-6"
+                        data-fr="Contact"
+                        data-en="Contact">Contact</h4>
+                    <ul class="space-y-3 text-gray-300">
                         <li>+33 1 85 14 92 67</li>
                         <li>contact@axiomiqai.dpdns.org</li>
-                        <li><span data-fr="Paris, France - Siège Mondial"
-                                  data-en="Paris, France - Global HQ">Paris, France - Siège Mondial</span></li>
-                        <li><span data-fr="47 bureaux dans le monde"
-                                  data-en="47 offices worldwide">47 bureaux dans le monde</span></li>
+                        <li><span data-fr="Paris, France"
+                                  data-en="Paris, France">Paris, France</span></li>
+                        <li><span data-fr="Support 24/7"
+                                  data-en="24/7 Support">Support 24/7</span></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="section-divider"></div>
-            
-            <div class="text-center text-gray-400 text-lg">
-                <p data-fr="&copy; 2024 AxiomIQAI. Tous droits réservés. | Excellence Absolue | Confidentialité Garantie | Résultats Mesurables"
-                   data-en="&copy; 2024 AxiomIQAI. All rights reserved. | Absolute Excellence | Guaranteed Confidentiality | Measurable Results">
-                    &copy; 2024 AxiomIQAI. Tous droits réservés. | Excellence Absolue | Confidentialité Garantie | Résultats Mesurables
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p data-fr="&copy; 2024 AxiomIQAI. Tous droits réservés. | Mentions légales | Politique de confidentialité | CGV"
+                   data-en="&copy; 2024 AxiomIQAI. All rights reserved. | Legal Notice | Privacy Policy | Terms of Service">
+                    &copy; 2024 AxiomIQAI. Tous droits réservés. | Mentions légales | Politique de confidentialité | CGV
                 </p>
             </div>
         </div>
@@ -1226,9 +1130,9 @@
             // Update language buttons
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 if (btn.dataset.lang === lang) {
-                    btn.className = 'lang-btn px-4 py-2 text-sm font-semibold rounded-md transition-all duration-300 electric-gradient text-white electric-shadow';
+                    btn.className = 'lang-btn px-3 py-2 text-sm font-semibold rounded-md transition-all duration-300 bg-gold text-white';
                 } else {
-                    btn.className = 'lang-btn px-4 py-2 text-sm font-semibold rounded-md transition-all duration-300 text-gray-300 hover:text-white';
+                    btn.className = 'lang-btn px-3 py-2 text-sm font-semibold rounded-md transition-all duration-300 text-charcoal hover:bg-gray-200';
                 }
             });
 
@@ -1298,73 +1202,49 @@
         function handleFormSubmit(event) {
             event.preventDefault();
             const message = currentLanguage === 'fr' 
-                ? 'Merci pour votre demande exclusive ! Notre équipe de direction vous contactera personnellement dans les 30 minutes pour planifier votre consultation stratégique.'
-                : 'Thank you for your exclusive request! Our management team will personally contact you within 30 minutes to schedule your strategic consultation.';
+                ? 'Merci pour votre demande ! Notre équipe d\'experts vous contactera dans les 2 heures pour planifier votre consultation gratuite.'
+                : 'Thank you for your request! Our expert team will contact you within 2 hours to schedule your free consultation.';
             alert(message);
         }
 
-        // Enhanced navbar scroll effect
+        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             if (window.scrollY > 100) {
-                nav.style.background = 'rgba(11, 20, 38, 0.95)';
-                nav.style.borderBottom = '1px solid rgba(0, 212, 255, 0.3)';
+                nav.classList.add('shadow-premium');
+                nav.classList.remove('border-b', 'border-gray-200/50');
             } else {
-                nav.style.background = 'rgba(11, 20, 38, 0.9)';
-                nav.style.borderBottom = '1px solid rgba(0, 212, 255, 0.2)';
+                nav.classList.remove('shadow-premium');
+                nav.classList.add('border-b', 'border-gray-200/50');
             }
         });
 
-        // Advanced intersection observer for staggered animations
+        // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver(function(entries) {
-            entries.forEach((entry, index) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0) scale(1)';
-                    }, index * 100);
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        // Parallax effect for floating orbs
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const orbs = document.querySelectorAll('.floating-orb');
-            orbs.forEach((orb, index) => {
-                const speed = 0.5 + (index * 0.1);
-                orb.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
-
-        // Initialize everything on load
+        // Initialize animations on load
         document.addEventListener('DOMContentLoaded', function() {
             // Set initial language
             switchLanguage('fr');
             
             // Observe elements for animation
-            document.querySelectorAll('.animate-slide-up, .animate-fade-in, .animate-scale-in, .hover-lift').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(50px) scale(0.9)';
+            document.querySelectorAll('.animate-slideUp, .animate-fadeIn, .card-hover').forEach(el => {
                 observer.observe(el);
-            });
-
-            // Add pulse animation to key metrics
-            document.querySelectorAll('.impact-number').forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    el.style.animation = 'pulse-glow 1s ease-in-out';
-                });
-                el.addEventListener('mouseleave', () => {
-                    el.style.animation = 'gradient-shift 3s ease-in-out infinite';
-                });
             });
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'970cdd3484c1989f',t:'MTc1NTQ3MjQyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'970d020cf321d808',t:'MTc1NTQ3MzkzNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
 
