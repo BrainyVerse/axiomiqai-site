@@ -13,6 +13,6 @@ Coming soon: A fast, secure, and professional website hosted on GitHub Pages and
 - Cloudflare CDN & SSL
 
 ## 📫 Contact
-- **Website:** [axiomiqai.eu.org](https://axiomiqai.eu.org)
+- **Website:** [axiomiqai.eu.org](https://axiomiqai.dpdns.org)
 - **GitHub:** [@BrainyVerse](https://github.com/BrainyVerse)
 
