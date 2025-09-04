@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Cookies | Cookie Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in { opacity: 0; animation: fadeIn 0.6s ease-in forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .slide-in { transform: translateX(-20px); opacity: 0; animation: slideIn 0.8s ease-out forwards; }
+        @keyframes slideIn { to { transform: translateX(0); opacity: 1; } }
+        .toggle-switch { transition: all 0.3s ease; }
+        .toggle-switch:checked { background-color: #3B82F6; }
+        .cookie-card { transition: all 0.3s ease; }
+        .cookie-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body class="min-h-screen" style="background: linear-gradient(135deg, rgb(18, 27, 46) 0%, rgb(28, 37, 56) 100%);">
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <span class="text-white text-xl">🍪</span>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-900">
+                    <span class="lang-fr">Gestion des Cookies</span>
+                    <span class="lang-en hidden">Cookie Management</span>
+                </h1>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button onclick="switchLanguage('fr')" class="lang-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-blue-600 text-white" data-lang="fr">
+                    🇫🇷 Français
+                </button>
+                <button onclick="switchLanguage('en')" class="lang-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300" data-lang="en">
+                    🇺🇸 English
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        <!-- Introduction -->
+        <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 mb-8 fade-in">
+            <div class="lang-fr">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Vos Préférences de Cookies</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                    Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic et personnaliser le contenu. 
+                    Vous pouvez gérer vos préférences ci-dessous.
+                </p>
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <p class="text-blue-800 font-medium">Vos choix sont sauvegardés automatiquement et respectent le RGPD</p>
+                    </div>
+                </div>
+            </div>
+            <div class="lang-en hidden">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Your Cookie Preferences</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                    We use cookies to enhance your experience, analyze traffic, and personalize content. 
+                    You can manage your preferences below.
+                </p>
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <p class="text-blue-800 font-medium">Your choices are automatically saved and GDPR compliant</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actions rapides -->
+        <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6 mb-8 slide-in">
+            <div class="flex flex-wrap gap-4 justify-center">
+                <button onclick="acceptAll()" class="px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition-colors duration-200 flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="lang-fr">Accepter Tout</span>
+                    <span class="lang-en hidden">Accept All</span>
+                </button>
+                <button onclick="rejectAll()" class="px-6 py-3 bg-red-600 text-white rounded-lg font-medium hover:bg-red-700 transition-colors duration-200 flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                    <span class="lang-fr">Refuser Tout</span>
+                    <span class="lang-en hidden">Reject All</span>
+                </button>
+                <button onclick="savePreferences()" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path>
+                    </svg>
+                    <span class="lang-fr">Sauvegarder les Préférences</span>
+                    <span class="lang-en hidden">Save Preferences</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Catégories de cookies -->
+        <div class="space-y-6">
+            <!-- Cookies Essentiels -->
+            <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 overflow-hidden cookie-card">
+                <div class="p-6 border-b border-gray-100">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">
+                                    <span class="lang-fr">Cookies Essentiels</span>
+                                    <span class="lang-en hidden">Essential Cookies</span>
+                                </h3>
+                                <p class="text-gray-600">
+                                    <span class="lang-fr">Nécessaires au fonctionnement du site</span>
+                                    <span class="lang-en hidden">Required for website functionality</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-sm text-gray-500 mr-3">
+                                <span class="lang-fr">Toujours actif</span>
+                                <span class="lang-en hidden">Always active</span>
+                            </span>
+                            <div class="w-12 h-6 bg-gray-300 rounded-full relative cursor-not-allowed opacity-50">
+                                <div class="w-5 h-5 bg-white rounded-full absolute top-0.5 right-0.5 shadow"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 bg-gray-50">
+                    <div class="lang-fr">
+                        <p class="text-gray-700 mb-4">
+                            Ces cookies sont indispensables au fonctionnement du site web et ne peuvent pas être désactivés. 
+                            Ils sont généralement définis en réponse à des actions que vous effectuez.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Sécurité & Authentification</h4>
+                                <p class="text-sm text-gray-600">Gestion des sessions utilisateur, protection CSRF</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Préférences du Site</h4>
+                                <p class="text-sm text-gray-600">Langue, région, paramètres d'accessibilité</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lang-en hidden">
+                        <p class="text-gray-700 mb-4">
+                            These cookies are essential for the website to function and cannot be disabled. 
+                            They are usually set in response to actions you perform.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Security & Authentication</h4>
+                                <p class="text-sm text-gray-600">User session management, CSRF protection</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Site Preferences</h4>
+                                <p class="text-sm text-gray-600">Language, region, accessibility settings</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cookies de Performance -->
+            <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 overflow-hidden cookie-card">
+                <div class="p-6 border-b border-gray-100">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">
+                                    <span class="lang-fr">Cookies de Performance</span>
+                                    <span class="lang-en hidden">Performance Cookies</span>
+                                </h3>
+                                <p class="text-gray-600">
+                                    <span class="lang-fr">Analyse et amélioration des performances</span>
+                                    <span class="lang-en hidden">Analytics and performance improvement</span>
+                                </p>
+                            </div>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="performance-toggle" class="sr-only toggle-switch" checked onchange="toggleCategory('performance')">
+                            <div class="w-12 h-6 bg-blue-600 rounded-full relative">
+                                <div class="w-5 h-5 bg-white rounded-full absolute top-0.5 left-0.5 shadow transition-transform duration-300" style="transform: translateX(24px);"></div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="p-6 bg-gray-50">
+                    <div class="lang-fr">
+                        <p class="text-gray-700 mb-4">
+                            Ces cookies nous permettent de compter les visites et les sources de trafic pour mesurer et améliorer les performances de notre site.
+                        </p>
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Google Analytics</h4>
+                                <p class="text-sm text-gray-600">Analyse du trafic et comportement utilisateur</p>
+                                <span class="text-xs text-gray-500">Durée: 2 ans</span>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Hotjar</h4>
+                                <p class="text-sm text-gray-600">Cartes de chaleur et enregistrements</p>
+                                <span class="text-xs text-gray-500">Durée: 1 an</span>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Performance Monitoring</h4>
+                                <p class="text-sm text-gray-600">Temps de chargement et erreurs</p>
+                                <span class="text-xs text-gray-500">Durée: 30 jours</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lang-en hidden">
+                        <p class="text-gray-700 mb-4">
+                            These cookies allow us to count visits and traffic sources to measure and improve our site's performance.
+                        </p>
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Google Analytics</h4>
+                                <p class="text-sm text-gray-600">Traffic analysis and user behavior</p>
+                                <span class="text-xs text-gray-500">Duration: 2 years</span>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Hotjar</h4>
+                                <p class="text-sm text-gray-600">Heatmaps and recordings</p>
+                                <span class="text-xs text-gray-500">Duration: 1 year</span>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Performance Monitoring</h4>
+                                <p class="text-sm text-gray-600">Loading times and errors</p>
+                                <span class="text-xs text-gray-500">Duration: 30 days</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cookies Marketing -->
+            <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 overflow-hidden cookie-card">
+                <div class="p-6 border-b border-gray-100">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">
+                                    <span class="lang-fr">Cookies Marketing</span>
+                                    <span class="lang-en hidden">Marketing Cookies</span>
+                                </h3>
+                                <p class="text-gray-600">
+                                    <span class="lang-fr">Publicité ciblée et personnalisation</span>
+                                    <span class="lang-en hidden">Targeted advertising and personalization</span>
+                                </p>
+                            </div>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="marketing-toggle" class="sr-only toggle-switch" onchange="toggleCategory('marketing')">
+                            <div class="w-12 h-6 bg-gray-300 rounded-full relative">
+                                <div class="w-5 h-5 bg-white rounded-full absolute top-0.5 left-0.5 shadow transition-transform duration-300" style="transform: translateX(0px);"></div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="p-6 bg-gray-50">
+                    <div class="lang-fr">
+                        <p class="text-gray-700 mb-4">
+                            Ces cookies sont utilisés pour vous proposer des publicités pertinentes et mesurer l'efficacité de nos campagnes marketing.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Google Ads & Facebook</h4>
+                                <p class="text-sm text-gray-600">Publicité ciblée et retargeting</p>
+                                <span class="text-xs text-gray-500">Durée: 90 jours</span>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Réseaux Sociaux</h4>
+                                <p class="text-sm text-gray-600">Partage et intégration sociale</p>
+                                <span class="text-xs text-gray-500">Durée: 1 an</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lang-en hidden">
+                        <p class="text-gray-700 mb-4">
+                            These cookies are used to show you relevant ads and measure the effectiveness of our marketing campaigns.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Google Ads & Facebook</h4>
+                                <p class="text-sm text-gray-600">Targeted advertising and retargeting</p>
+                                <span class="text-xs text-gray-500">Duration: 90 days</span>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Social Networks</h4>
+                                <p class="text-sm text-gray-600">Social sharing and integration</p>
+                                <span class="text-xs text-gray-500">Duration: 1 year</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cookies Fonctionnels -->
+            <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 overflow-hidden cookie-card">
+                <div class="p-6 border-b border-gray-100">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900">
+                                    <span class="lang-fr">Cookies Fonctionnels</span>
+                                    <span class="lang-en hidden">Functional Cookies</span>
+                                </h3>
+                                <p class="text-gray-600">
+                                    <span class="lang-fr">Fonctionnalités avancées et personnalisation</span>
+                                    <span class="lang-en hidden">Advanced features and customization</span>
+                                </p>
+                            </div>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="functional-toggle" class="sr-only toggle-switch" checked onchange="toggleCategory('functional')">
+                            <div class="w-12 h-6 bg-green-600 rounded-full relative">
+                                <div class="w-5 h-5 bg-white rounded-full absolute top-0.5 left-0.5 shadow transition-transform duration-300" style="transform: translateX(24px);"></div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="p-6 bg-gray-50">
+                    <div class="lang-fr">
+                        <p class="text-gray-700 mb-4">
+                            Ces cookies permettent d'améliorer les fonctionnalités et la personnalisation du site web.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Chat & Support</h4>
+                                <p class="text-sm text-gray-600">Widget de chat en direct, historique</p>
+                                <span class="text-xs text-gray-500">Durée: 6 mois</span>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Personnalisation</h4>
+                                <p class="text-sm text-gray-600">Thème, mise en page, préférences</p>
+                                <span class="text-xs text-gray-500">Durée: 1 an</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lang-en hidden">
+                        <p class="text-gray-700 mb-4">
+                            These cookies enable enhanced functionality and personalization of the website.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Chat & Support</h4>
+                                <p class="text-sm text-gray-600">Live chat widget, history</p>
+                                <span class="text-xs text-gray-500">Duration: 6 months</span>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-2">Personalization</h4>
+                                <p class="text-sm text-gray-600">Theme, layout, preferences</p>
+                                <span class="text-xs text-gray-500">Duration: 1 year</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tableau détaillé des cookies -->
+        <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 mt-8">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                <span class="lang-fr">Liste Détaillée des Cookies</span>
+                <span class="lang-en hidden">Detailed Cookie List</span>
+            </h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left font-semibold text-gray-900">
+                                <span class="lang-fr">Nom</span>
+                                <span class="lang-en hidden">Name</span>
+                            </th>
+                            <th class="px-4 py-3 text-left font-semibold text-gray-900">
+                                <span class="lang-fr">Fournisseur</span>
+                                <span class="lang-en hidden">Provider</span>
+                            </th>
+                            <th class="px-4 py-3 text-left font-semibold text-gray-900">
+                                <span class="lang-fr">Finalité</span>
+                                <span class="lang-en hidden">Purpose</span>
+                            </th>
+                            <th class="px-4 py-3 text-left font-semibold text-gray-900">
+                                <span class="lang-fr">Durée</span>
+                                <span class="lang-en hidden">Duration</span>
+                            </th>
+                            <th class="px-4 py-3 text-left font-semibold text-gray-900">
+                                <span class="lang-fr">Type</span>
+                                <span class="lang-en hidden">Type</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-xs">session_id</td>
+                            <td class="px-4 py-3">AxiomIQ AI</td>
+                            <td class="px-4 py-3">
+                                <span class="lang-fr">Gestion de session utilisateur</span>
+                                <span class="lang-en hidden">User session management</span>
+                            </td>
+                            <td class="px-4 py-3">
+                                <span class="lang-fr">Session</span>
+                                <span class="lang-en hidden">Session</span>
+                            </td>
+                            <td class="px-4 py-3"><span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">
+                                <span class="lang-fr">Essentiel</span>
+                                <span class="lang-en hidden">Essential</span>
+                            </span></td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-xs">_ga</td>
+                            <td class="px-4 py-3">Google Analytics</td>
+                            <td class="px-4 py-3">
+                                <span class="lang-fr">Analyse du trafic</span>
+                                <span class="lang-en hidden">Traffic analysis</span>
+                            </td>
+                            <td class="px-4 py-3">2 ans</td>
+                            <td class="px-4 py-3"><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">Performance</span></td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-xs">_fbp</td>
+                            <td class="px-4 py-3">Facebook</td>
+                            <td class="px-4 py-3">
+                                <span class="lang-fr">Publicité ciblée</span>
+                                <span class="lang-en hidden">Targeted advertising</span>
+                            </td>
+                            <td class="px-4 py-3">90 jours</td>
+                            <td class="px-4 py-3"><span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">Marketing</span></td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-mono text-xs">theme_pref</td>
+                            <td class="px-4 py-3">AxiomIQ AI</td>
+                            <td class="px-4 py-3">
+                                <span class="lang-fr">Préférences d'affichage</span>
+                                <span class="lang-en hidden">Display preferences</span>
+                            </td>
+                            <td class="px-4 py-3">1 an</td>
+                            <td class="px-4 py-3"><span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">
+                                <span class="lang-fr">Fonctionnel</span>
+                                <span class="lang-en hidden">Functional</span>
+                            </span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Informations légales -->
+        <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 mt-8">
+            <div class="lang-fr">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">Informations Légales</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-3">Vos Droits</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>Droit d'accès à vos données</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>Droit de rectification</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>Droit à l'effacement</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>Droit de portabilité</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-3">Contact</h4>
+                        <p class="text-gray-600 mb-2">Pour toute question concernant les cookies :</p>
+                        <p class="text-blue-600 font-medium">contact@axiomiqai.dpdns.org</p>
+                        <p class="text-gray-600 text-sm mt-2">AxiomIQ AI - Paris, France</p>
+                    </div>
+                </div>
+            </div>
+            <div class="lang-en hidden">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">Legal Information</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-3">Your Rights</h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>Right to access your data</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>Right to rectification</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>Right to erasure</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>Right to portability</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-900 mb-3">Contact</h4>
+                        <p class="text-gray-600 mb-2">For any questions about cookies:</p>
+                        <p class="text-blue-600 font-medium">contact@axiomiqai.dpdns.org</p>
+                        <p class="text-gray-600 text-sm mt-2">AxiomIQ AI - Paris, France</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-white py-8 mt-12" style="background: rgba(18, 27, 46, 0.95); backdrop-filter: blur(10px);">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="lang-fr">
+                <p class="text-gray-400 mb-2">Vos préférences de cookies sont sauvegardées et peuvent être modifiées à tout moment.</p>
+                <p class="text-sm text-gray-500">© 2024 AxiomIQ AI. Tous droits réservés.</p>
+            </div>
+            <div class="lang-en hidden">
+                <p class="text-gray-400 mb-2">Your cookie preferences are saved and can be modified at any time.</p>
+                <p class="text-sm text-gray-500">© 2024 AxiomIQ AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification de sauvegarde -->
+    <div id="save-notification" class="fixed bottom-6 right-6 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-full opacity-0 transition-all duration-300">
+        <div class="flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="lang-fr">Préférences sauvegardées !</span>
+            <span class="lang-en hidden">Preferences saved!</span>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'fr';
+        let cookiePreferences = {
+            essential: true,
+            performance: true,
+            marketing: false,
+            functional: true
+        };
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            document.querySelectorAll('.lang-fr, .lang-en').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+                el.classList.remove('hidden');
+            });
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.dataset.lang === lang) {
+                    btn.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                    btn.classList.add('bg-blue-600', 'text-white');
+                } else {
+                    btn.classList.remove('bg-blue-600', 'text-white');
+                    btn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                }
+            });
+
+            document.documentElement.lang = lang;
+        }
+
+        function toggleCategory(category) {
+            const toggle = document.getElementById(`${category}-toggle`);
+            const isChecked = toggle.checked;
+            cookiePreferences[category] = isChecked;
+            
+            // Animation du toggle
+            const toggleDiv = toggle.nextElementSibling;
+            const toggleButton = toggleDiv.querySelector('div');
+            
+            if (isChecked) {
+                toggleDiv.classList.remove('bg-gray-300');
+                if (category === 'performance') {
+                    toggleDiv.classList.add('bg-blue-600');
+                } else if (category === 'functional') {
+                    toggleDiv.classList.add('bg-green-600');
+                } else if (category === 'marketing') {
+                    toggleDiv.classList.add('bg-purple-600');
+                }
+                toggleButton.style.transform = 'translateX(24px)';
+            } else {
+                toggleDiv.classList.add('bg-gray-300');
+                toggleDiv.classList.remove('bg-blue-600', 'bg-green-600', 'bg-purple-600');
+                toggleButton.style.transform = 'translateX(0px)';
+            }
+        }
+
+        function acceptAll() {
+            cookiePreferences = {
+                essential: true,
+                performance: true,
+                marketing: true,
+                functional: true
+            };
+            updateToggles();
+            savePreferences();
+        }
+
+        function rejectAll() {
+            cookiePreferences = {
+                essential: true, // Toujours actif
+                performance: false,
+                marketing: false,
+                functional: false
+            };
+            updateToggles();
+            savePreferences();
+        }
+
+        function updateToggles() {
+            Object.keys(cookiePreferences).forEach(category => {
+                if (category !== 'essential') {
+                    const toggle = document.getElementById(`${category}-toggle`);
+                    if (toggle) {
+                        toggle.checked = cookiePreferences[category];
+                        
+                        // Mise à jour visuelle du toggle
+                        const toggleDiv = toggle.nextElementSibling;
+                        const toggleButton = toggleDiv.querySelector('div');
+                        
+                        if (cookiePreferences[category]) {
+                            toggleDiv.classList.remove('bg-gray-300');
+                            if (category === 'performance') {
+                                toggleDiv.classList.add('bg-blue-600');
+                            } else if (category === 'functional') {
+                                toggleDiv.classList.add('bg-green-600');
+                            } else if (category === 'marketing') {
+                                toggleDiv.classList.add('bg-purple-600');
+                            }
+                            toggleButton.style.transform = 'translateX(24px)';
+                        } else {
+                            toggleDiv.classList.add('bg-gray-300');
+                            toggleDiv.classList.remove('bg-blue-600', 'bg-green-600', 'bg-purple-600');
+                            toggleButton.style.transform = 'translateX(0px)';
+                        }
+                    }
+                }
+            });
+        }
+
+        function savePreferences() {
+            // Simulation de sauvegarde
+            localStorage.setItem('cookiePreferences', JSON.stringify(cookiePreferences));
+            
+            // Afficher la notification
+            const notification = document.getElementById('save-notification');
+            notification.classList.remove('translate-y-full', 'opacity-0');
+            notification.classList.add('translate-y-0', 'opacity-100');
+            
+            setTimeout(() => {
+                notification.classList.add('translate-y-full', 'opacity-0');
+                notification.classList.remove('translate-y-0', 'opacity-100');
+            }, 3000);
+
+            // Log des préférences (pour démonstration)
+            console.log('Préférences de cookies sauvegardées:', cookiePreferences);
+        }
+
+        // Charger les préférences sauvegardées
+        function loadPreferences() {
+            const saved = localStorage.getItem('cookiePreferences');
+            if (saved) {
+                cookiePreferences = JSON.parse(saved);
+                updateToggles();
+            }
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPreferences();
+            
+            // Animation d'entrée des cartes
+            const cards = document.querySelectorAll('.cookie-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+
+        // Défilement fluide
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'979fc5a713259ea2',t:'MTc1NzAxMjg3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
