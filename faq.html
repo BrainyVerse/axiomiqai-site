@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Questions Fréquentes | Frequently Asked Questions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in { opacity: 0; animation: fadeIn 0.6s ease-in forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .slide-in { transform: translateY(20px); opacity: 0; animation: slideIn 0.8s ease-out forwards; }
+        @keyframes slideIn { to { transform: translateY(0); opacity: 1; } }
+        .faq-item { transition: all 0.3s ease; }
+        .faq-item:hover { transform: translateY(-2px); }
+        .faq-answer { 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out; 
+        }
+        .faq-answer.open { 
+            max-height: 500px; 
+            padding-top: 1rem; 
+            padding-bottom: 1rem; 
+        }
+        .rotate-180 { transform: rotate(180deg); }
+        .search-highlight { background-color: #fef3c7; padding: 0 2px; border-radius: 2px; }
+    </style>
+</head>
+<body class="min-h-screen" style="background: linear-gradient(135deg, rgb(18, 27, 46) 0%, rgb(28, 37, 56) 50%, rgb(38, 47, 66) 100%);">
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <span class="text-white text-xl">❓</span>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-900">
+                    <span class="lang-fr">FAQ - Questions Fréquentes</span>
+                    <span class="lang-en hidden">FAQ - Frequently Asked Questions</span>
+                </h1>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button onclick="switchLanguage('fr')" class="lang-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-blue-600 text-white" data-lang="fr">
+                    🇫🇷 Français
+                </button>
+                <button onclick="switchLanguage('en')" class="lang-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300" data-lang="en">
+                    🇺🇸 English
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        <!-- Introduction -->
+        <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 mb-8 fade-in text-center">
+            <div class="lang-fr">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Comment pouvons-nous vous aider ?</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                    Trouvez rapidement les réponses à vos questions les plus fréquentes. 
+                    Si vous ne trouvez pas ce que vous cherchez, n'hésitez pas à nous contacter.
+                </p>
+            </div>
+            <div class="lang-en hidden">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">How can we help you?</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                    Quickly find answers to your most frequently asked questions. 
+                    If you can't find what you're looking for, feel free to contact us.
+                </p>
+            </div>
+            
+            <!-- Barre de recherche -->
+            <div class="relative max-w-md mx-auto">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    placeholder="Rechercher une question..." 
+                    class="w-full px-4 py-3 pl-12 pr-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    onkeyup="searchFAQ()"
+                >
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistiques rapides -->
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-6 text-center slide-in">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">25+</h3>
+                <p class="text-gray-600">
+                    <span class="lang-fr">Questions répondues</span>
+                    <span class="lang-en hidden">Questions answered</span>
+                </p>
+            </div>
+            <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-6 text-center slide-in" style="animation-delay: 0.2s;">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">&lt; 2min</h3>
+                <p class="text-gray-600">
+                    <span class="lang-fr">Temps de réponse moyen</span>
+                    <span class="lang-en hidden">Average response time</span>
+                </p>
+            </div>
+            <div class="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 p-6 text-center slide-in" style="animation-delay: 0.4s;">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">98%</h3>
+                <p class="text-gray-600">
+                    <span class="lang-fr">Satisfaction client</span>
+                    <span class="lang-en hidden">Customer satisfaction</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Catégories FAQ -->
+        <div class="space-y-8">
+            <!-- Général -->
+            <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-6">
+                    <div class="flex items-center text-white">
+                        <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h3 class="text-2xl font-bold">
+                            <span class="lang-fr">Questions Générales</span>
+                            <span class="lang-en hidden">General Questions</span>
+                        </h3>
+                    </div>
+                </div>
+                <div class="p-6 space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200" data-category="general">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-semibold text-gray-900">
+                                <span class="lang-fr">Qu'est-ce qu'AxiomIQ AI ?</span>
+                                <span class="lang-en hidden">What is AxiomIQ AI?</span>
+                            </span>
+                            <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-700">
+                            <div class="lang-fr">
+                                <p>AxiomIQ AI est une plateforme d'intelligence artificielle avancée qui propose des solutions innovantes pour automatiser et optimiser vos processus métier. Nous combinons l'apprentissage automatique, le traitement du langage naturel et l'analyse prédictive pour créer des outils puissants et accessibles.</p>
+                            </div>
+                            <div class="lang-en hidden">
+                                <p>AxiomIQ AI is an advanced artificial intelligence platform that offers innovative solutions to automate and optimize your business processes. We combine machine learning, natural language processing, and predictive analytics to create powerful and accessible tools.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200" data-category="general">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-semibold text-gray-900">
+                                <span class="lang-fr">Comment commencer avec AxiomIQ AI ?</span>
+                                <span class="lang-en hidden">How do I get started with AxiomIQ AI?</span>
+                            </span>
+                            <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-700">
+                            <div class="lang-fr">
+                                <p>Pour commencer, créez simplement un compte gratuit sur notre plateforme. Vous aurez accès à un tableau de bord intuitif, des tutoriels guidés et une période d'essai de 14 jours pour explorer toutes nos fonctionnalités. Notre équipe support est également disponible 24/7 pour vous accompagner.</p>
+                            </div>
+                            <div class="lang-en hidden">
+                                <p>To get started, simply create a free account on our platform. You'll have access to an intuitive dashboard, guided tutorials, and a 14-day trial period to explore all our features. Our support team is also available 24/7 to assist you.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200" data-category="general">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-semibold text-gray-900">
+                                <span class="lang-fr">Quels types d'entreprises utilisent AxiomIQ AI ?</span>
+                                <span class="lang-en hidden">What types of businesses use AxiomIQ AI?</span>
+                            </span>
+                            <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-700">
+                            <div class="lang-fr">
+                                <p>Nos solutions s'adaptent à tous types d'entreprises : startups, PME, grandes entreprises, e-commerce, services financiers, santé, éducation, et bien plus. Que vous ayez besoin d'automatiser le service client, d'analyser des données ou d'optimiser vos processus, AxiomIQ AI s'adapte à votre secteur.</p>
+                            </div>
+                            <div class="lang-en hidden">
+                                <p>Our solutions adapt to all types of businesses: startups, SMEs, large enterprises, e-commerce, financial services, healthcare, education, and more. Whether you need to automate customer service, analyze data, or optimize your processes, AxiomIQ AI adapts to your industry.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarification -->
+            <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 overflow-hidden">
+                <div class="bg-gradient-to-r from-green-500 to-green-600 p-6">
+                    <div class="flex items-center text-white">
+                        <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                        <h3 class="text-2xl font-bold">
+                            <span class="lang-fr">Tarification & Abonnements</span>
+                            <span class="lang-en hidden">Pricing & Subscriptions</span>
+                        </h3>
+                    </div>
+                </div>
+                <div class="p-6 space-y-4">
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200" data-category="pricing">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-semibold text-gray-900">
+                                <span class="lang-fr">Quels sont vos plans tarifaires ?</span>
+                                <span class="lang-en hidden">What are your pricing plans?</span>
+                            </span>
+                            <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-700">
+                            <div class="lang-fr">
+                                <p><strong>Plan Gratuit :</strong> Accès limité, parfait pour tester nos fonctionnalités</p>
+                                <p><strong>Plan Pro (29€/mois) :</strong> Fonctionnalités avancées, support prioritaire</p>
+                                <p><strong>Plan Enterprise (99€/mois) :</strong> Toutes les fonctionnalités, intégrations personnalisées</p>
+                                <p>Tous les plans incluent une période d'essai gratuite de 14 jours.</p>
+                            </div>
+                            <div class="lang-en hidden">
+                                <p><strong>Free Plan:</strong> Limited access, perfect for testing our features</p>
+                                <p><strong>Pro Plan (€29/month):</strong> Advanced features, priority support</p>
+                                <p><strong>Enterprise Plan (€99/month):</strong> All features, custom integrations</p>
+                                <p>All plans include a 14-day free trial period.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200" data-category="pricing">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-semibold text-gray-900">
+                                <span class="lang-fr">Puis-je annuler mon abonnement à tout moment ?</span>
+                                <span class="lang-en hidden">Can I cancel my subscription at any time?</span>
+                            </span>
+                            <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-700">
+                            <div class="lang-fr">
+                                <p>Oui, absolument ! Vous pouvez annuler votre abonnement à tout moment depuis votre tableau de bord. L'annulation prend effet à la fin de votre période de facturation actuelle. Aucuns frais cachés, aucune pénalité. Vos données restent accessibles pendant 30 jours après l'annulation.</p>
+                            </div>
+                            <div class="lang-en hidden">
+                                <p>Yes, absolutely! You can cancel your subscription at any time from your dashboard. The cancellation takes effect at the end of your current billing period. No hidden fees, no penalties. Your data remains accessible for 30 days after cancellation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200" data-category="pricing">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-semibold text-gray-900">
+                                <span class="lang-fr">Offrez-vous des remises pour les organisations à but non lucratif ?</span>
+                                <span class="lang-en hidden">Do you offer discounts for non-profit organizations?</span>
+                            </span>
+                            <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-700">
+                            <div class="lang-fr">
+                                <p>Oui ! Nous offrons une remise de 50% sur tous nos plans pour les organisations à but non lucratif, les établissements d'enseignement et les startups en phase d'amorçage. Contactez notre équipe commerciale avec vos documents justificatifs pour bénéficier de cette offre spéciale.</p>
+                            </div>
+                            <div class="lang-en hidden">
+                                <p>Yes! We offer a 50% discount on all our plans for non-profit organizations, educational institutions, and early-stage startups. Contact our sales team with your supporting documents to benefit from this special offer.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technique -->
+            <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-purple-600 p-6">
+                    <div class="flex items-center text-white">
+                        <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <h3 class="text-2xl font-bold">
+                            <span class="lang-fr">Questions Techniques</span>
+                            <span class="lang-en hidden">Technical Questions</span>
+                        </h3>
+                    </div>
+                </div>
+                <div class="p-6 space-y-4">
+                    <!-- FAQ Item 7 -->
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200" data-category="technical">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-semibold text-gray-900">
+                                <span class="lang-fr">Quelles intégrations proposez-vous ?</span>
+                                <span class="lang-en hidden">What integrations do you offer?</span>
+                            </span>
+                            <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-700">
+                            <div class="lang-fr">
+                                <p>Nous proposons plus de 100 intégrations natives avec les outils les plus populaires :</p>
+                                <ul class="list-disc list-inside mt-2 space-y-1">
+                                    <li>CRM : Salesforce, HubSpot, Pipedrive</li>
+                                    <li>Communication : Slack, Microsoft Teams, Discord</li>
+                                    <li>E-commerce : Shopify, WooCommerce, Magento</li>
+                                    <li>Productivité : Google Workspace, Office 365</li>
+                                    <li>API REST pour intégrations personnalisées</li>
+                                </ul>
+                            </div>
+                            <div class="lang-en hidden">
+                                <p>We offer over 100 native integrations with the most popular tools:</p>
+                                <ul class="list-disc list-inside mt-2 space-y-1">
+                                    <li>CRM: Salesforce, HubSpot, Pipedrive</li>
+                                    <li>Communication: Slack, Microsoft Teams, Discord</li>
+                                    <li>E-commerce: Shopify, WooCommerce, Magento</li>
+                                    <li>Productivity: Google Workspace, Office 365</li>
+                                    <li>REST API for custom integrations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 8 -->
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200" data-category="technical">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-semibold text-gray-900">
+                                <span class="lang-fr">Mes données sont-elles sécurisées ?</span>
+                                <span class="lang-en hidden">Is my data secure?</span>
+                            </span>
+                            <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-700">
+                            <div class="lang-fr">
+                                <p>La sécurité est notre priorité absolue. Nous utilisons :</p>
+                                <ul class="list-disc list-inside mt-2 space-y-1">
+                                    <li>Chiffrement AES-256 pour toutes les données</li>
+                                    <li>Hébergement sur AWS avec certification SOC 2</li>
+                                    <li>Authentification à deux facteurs (2FA)</li>
+                                    <li>Sauvegardes automatiques quotidiennes</li>
+                                    <li>Conformité RGPD et ISO 27001</li>
+                                </ul>
+                            </div>
+                            <div class="lang-en hidden">
+                                <p>Security is our absolute priority. We use:</p>
+                                <ul class="list-disc list-inside mt-2 space-y-1">
+                                    <li>AES-256 encryption for all data</li>
+                                    <li>AWS hosting with SOC 2 certification</li>
+                                    <li>Two-factor authentication (2FA)</li>
+                                    <li>Daily automatic backups</li>
+                                    <li>GDPR and ISO 27001 compliance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 9 -->
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200" data-category="technical">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-semibold text-gray-900">
+                                <span class="lang-fr">Quelle est la disponibilité de votre service ?</span>
+                                <span class="lang-en hidden">What is your service availability?</span>
+                            </span>
+                            <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-700">
+                            <div class="lang-fr">
+                                <p>Nous garantissons une disponibilité de 99.9% avec un SLA (Service Level Agreement) complet. Notre infrastructure redondante et notre monitoring 24/7 assurent une continuité de service optimale. En cas d'incident, notre équipe technique intervient en moins de 15 minutes.</p>
+                            </div>
+                            <div class="lang-en hidden">
+                                <p>We guarantee 99.9% availability with a complete SLA (Service Level Agreement). Our redundant infrastructure and 24/7 monitoring ensure optimal service continuity. In case of an incident, our technical team responds within 15 minutes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Support -->
+            <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 overflow-hidden">
+                <div class="bg-gradient-to-r from-red-500 to-red-600 p-6">
+                    <div class="flex items-center text-white">
+                        <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <h3 class="text-2xl font-bold">
+                            <span class="lang-fr">Support & Assistance</span>
+                            <span class="lang-en hidden">Support & Assistance</span>
+                        </h3>
+                    </div>
+                </div>
+                <div class="p-6 space-y-4">
+                    <!-- FAQ Item 10 -->
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200" data-category="support">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-semibold text-gray-900">
+                                <span class="lang-fr">Comment contacter le support ?</span>
+                                <span class="lang-en hidden">How do I contact support?</span>
+                            </span>
+                            <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-700">
+                            <div class="lang-fr">
+                                <p>Plusieurs options s'offrent à vous :</p>
+                                <ul class="list-disc list-inside mt-2 space-y-1">
+                                    <li><strong>Chat en direct :</strong> Disponible 24/7 depuis votre tableau de bord</li>
+                                    <li><strong>Email :</strong> support@axiomiqai.dpdns.org (réponse sous 2h)</li>
+                                    <li><strong>Téléphone :</strong> +33 1 23 45 67 89 (lun-ven 9h-18h)</li>
+                                    <li><strong>Centre d'aide :</strong> Documentation complète et tutoriels</li>
+                                </ul>
+                            </div>
+                            <div class="lang-en hidden">
+                                <p>Several options are available to you:</p>
+                                <ul class="list-disc list-inside mt-2 space-y-1">
+                                    <li><strong>Live chat:</strong> Available 24/7 from your dashboard</li>
+                                    <li><strong>Email:</strong> support@axiomiqai.dpdns.org (response within 2h)</li>
+                                    <li><strong>Phone:</strong> +33 1 23 45 67 89 (Mon-Fri 9am-6pm)</li>
+                                    <li><strong>Help center:</strong> Complete documentation and tutorials</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 11 -->
+                    <div class="faq-item bg-gray-50 rounded-lg border border-gray-200" data-category="support">
+                        <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors" onclick="toggleFAQ(this)">
+                            <span class="font-semibold text-gray-900">
+                                <span class="lang-fr">Proposez-vous de la formation ?</span>
+                                <span class="lang-en hidden">Do you offer training?</span>
+                            </span>
+                            <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 text-gray-700">
+                            <div class="lang-fr">
+                                <p>Oui ! Nous proposons plusieurs formats de formation :</p>
+                                <ul class="list-disc list-inside mt-2 space-y-1">
+                                    <li><strong>Webinaires gratuits :</strong> Chaque mardi à 14h</li>
+                                    <li><strong>Sessions personnalisées :</strong> Formation sur mesure pour votre équipe</li>
+                                    <li><strong>Certification :</strong> Programme de certification AxiomIQ AI</li>
+                                    <li><strong>Ressources en ligne :</strong> Vidéos, guides et cas d'usage</li>
+                                </ul>
+                            </div>
+                            <div class="lang-en hidden">
+                                <p>Yes! We offer several training formats:</p>
+                                <ul class="list-disc list-inside mt-2 space-y-1">
+                                    <li><strong>Free webinars:</strong> Every Tuesday at 2pm</li>
+                                    <li><strong>Custom sessions:</strong> Tailored training for your team</li>
+                                    <li><strong>Certification:</strong> AxiomIQ AI certification program</li>
+                                    <li><strong>Online resources:</strong> Videos, guides and use cases</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Contact -->
+        <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 mt-12 text-center">
+            <div class="lang-fr">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Vous ne trouvez pas votre réponse ?</h3>
+                <p class="text-gray-600 mb-6">Notre équipe support est là pour vous aider. Contactez-nous et obtenez une réponse personnalisée en moins de 2 heures.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="mailto:support@axiomiqai.dpdns.org" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        Envoyer un Email
+                    </a>
+                    <button class="px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition-colors duration-200 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                        Chat en Direct
+                    </button>
+                </div>
+            </div>
+            <div class="lang-en hidden">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Can't find your answer?</h3>
+                <p class="text-gray-600 mb-6">Our support team is here to help. Contact us and get a personalized response in less than 2 hours.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="mailto:support@axiomiqai.dpdns.org" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        Send Email
+                    </a>
+                    <button class="px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition-colors duration-200 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                        Live Chat
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-white py-8 mt-12" style="background: rgba(18, 27, 46, 0.95); backdrop-filter: blur(10px);">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="lang-fr">
+                <p class="text-gray-400 mb-2">Cette FAQ est mise à jour régulièrement. Dernière mise à jour : Décembre 2024</p>
+                <p class="text-sm text-gray-500">© 2024 AxiomIQ AI. Tous droits réservés.</p>
+            </div>
+            <div class="lang-en hidden">
+                <p class="text-gray-400 mb-2">This FAQ is updated regularly. Last update: December 2024</p>
+                <p class="text-sm text-gray-500">© 2024 AxiomIQ AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentLang = 'fr';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            document.querySelectorAll('.lang-fr, .lang-en').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+                el.classList.remove('hidden');
+            });
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.dataset.lang === lang) {
+                    btn.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                    btn.classList.add('bg-blue-600', 'text-white');
+                } else {
+                    btn.classList.remove('bg-blue-600', 'text-white');
+                    btn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                }
+            });
+
+            document.documentElement.lang = lang;
+            
+            // Mettre à jour le placeholder de recherche
+            const searchInput = document.getElementById('search-input');
+            if (lang === 'fr') {
+                searchInput.placeholder = 'Rechercher une question...';
+            } else {
+                searchInput.placeholder = 'Search for a question...';
+            }
+        }
+
+        function toggleFAQ(button) {
+            const faqItem = button.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = button.querySelector('svg');
+            
+            // Fermer toutes les autres FAQ ouvertes
+            document.querySelectorAll('.faq-answer.open').forEach(openAnswer => {
+                if (openAnswer !== answer) {
+                    openAnswer.classList.remove('open');
+                    openAnswer.parentElement.querySelector('svg').classList.remove('rotate-180');
+                }
+            });
+            
+            // Toggle la FAQ actuelle
+            answer.classList.toggle('open');
+            icon.classList.toggle('rotate-180');
+        }
+
+        function searchFAQ() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('button span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    
+                    // Surligner les termes de recherche
+                    if (searchTerm.length > 2) {
+                        highlightSearchTerm(item, searchTerm);
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Afficher un message si aucun résultat
+            const visibleItems = document.querySelectorAll('.faq-item[style="display: block;"], .faq-item:not([style*="display: none"])');
+            if (visibleItems.length === 0 && searchTerm.length > 0) {
+                showNoResultsMessage();
+            } else {
+                hideNoResultsMessage();
+            }
+        }
+
+        function highlightSearchTerm(item, searchTerm) {
+            const question = item.querySelector('button span');
+            const originalText = question.textContent;
+            const highlightedText = originalText.replace(
+                new RegExp(searchTerm, 'gi'),
+                match => `<span class="search-highlight">${match}</span>`
+            );
+            question.innerHTML = highlightedText;
+        }
+
+        function showNoResultsMessage() {
+            let noResultsDiv = document.getElementById('no-results');
+            if (!noResultsDiv) {
+                noResultsDiv = document.createElement('div');
+                noResultsDiv.id = 'no-results';
+                noResultsDiv.className = 'bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 text-center';
+                noResultsDiv.innerHTML = `
+                    <div class="text-gray-500">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-2">
+                            <span class="lang-fr">Aucun résultat trouvé</span>
+                            <span class="lang-en hidden">No results found</span>
+                        </h3>
+                        <p class="text-gray-600">
+                            <span class="lang-fr">Essayez avec d'autres mots-clés ou contactez notre support.</span>
+                            <span class="lang-en hidden">Try with other keywords or contact our support.</span>
+                        </p>
+                    </div>
+                `;
+                document.querySelector('main').appendChild(noResultsDiv);
+            }
+            noResultsDiv.style.display = 'block';
+        }
+
+        function hideNoResultsMessage() {
+            const noResultsDiv = document.getElementById('no-results');
+            if (noResultsDiv) {
+                noResultsDiv.style.display = 'none';
+            }
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation d'entrée des éléments
+            const elements = document.querySelectorAll('.fade-in, .slide-in');
+            elements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Défilement fluide pour les ancres
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'979fcabbe6d00216',t:'MTc1NzAxMzA3OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
