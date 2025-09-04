@@ -57,7 +57,7 @@ We help our clients streamline processes, reduce repetitive tasks, and leverage 
 
 - **Repo GitHub** : [axiomiqai-site](https://github.com/brainyverse/axiomiqai-site)  
 - **Déploiement** : via [GitHub Pages](https://pages.github.com/)  
-- **Domaine personnalisé** : [axiomigai.dpdns.org](http://axiomigai.dpdns.org)  
+- **Domaine personnalisé** : [axiomiqai.dpdns.org](http://axiomiqai.dpdns.org)  
 
 ---
 
