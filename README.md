@@ -8,8 +8,7 @@
 # AxiomiqAI
 
 ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deployed-2ea44f?logo=github)
-![Made with](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Automation](https://img.shields.io/badge/Focus-Business%20Automation-blueviolet)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)
 
 ---
@@ -17,40 +16,40 @@
 ## 🇫🇷 À propos | 🇬🇧 About
 
 **FR** :  
-Bienvenue sur **AxiomiqAI**, un projet dédié à l’exploration, la recherche et la vulgarisation autour de l’intelligence artificielle, des données et de leurs applications concrètes.  
-Ce site est généré avec **GitHub Pages** et héberge nos contenus, articles et ressources.
+**AxiomiqAI** accompagne les entreprises dans leur transformation digitale en proposant des solutions d’**automatisation intelligentes**.  
+Nous aidons nos clients à optimiser leurs processus, réduire les tâches répétitives et exploiter le potentiel de l’**intelligence artificielle** pour améliorer leur performance.  
 
 **EN** :  
-Welcome to **AxiomiqAI**, a project dedicated to exploring, researching, and popularizing artificial intelligence, data, and their real-world applications.  
-This site is powered by **GitHub Pages** and hosts our content, articles, and resources.
+**AxiomiqAI** supports businesses in their digital transformation by delivering **smart automation solutions**.  
+We help our clients streamline processes, reduce repetitive tasks, and leverage the power of **artificial intelligence** to boost efficiency and performance.  
 
 ---
 
 ## 🎯 Mission
 
 **FR** :  
-- Rendre l’IA plus **accessible** et **compréhensible** pour tous.  
-- Mettre en avant des **expérimentations pratiques** et des **guides**.  
-- Partager une vision **critique et éthique** du développement de l’IA.  
+- Simplifier et automatiser les processus métiers.  
+- Offrir des solutions sur mesure adaptées aux besoins des entreprises.  
+- Favoriser un usage **éthique et responsable** de l’intelligence artificielle.  
 
 **EN** :  
-- Make AI more **accessible** and **understandable** for everyone.  
-- Highlight **hands-on experiments** and **guides**.  
-- Share a **critical and ethical** perspective on AI development.  
+- Simplify and automate business processes.  
+- Provide tailored solutions adapted to companies’ needs.  
+- Promote an **ethical and responsible** use of artificial intelligence.  
 
 ---
 
-## 📚 Contenu | Content
+## 🛠️ Services | Services
 
 **FR** :  
-- Articles et billets sur l’IA, le machine learning et la data science.  
-- Tutoriels pour comprendre les bases et lancer vos propres projets.  
-- Ressources (liens, outils, références) pour aller plus loin.  
+- Automatisation des workflows et processus internes.  
+- Intégration d’outils IA pour la productivité.  
+- Développement de solutions personnalisées.  
 
 **EN** :  
-- Articles and posts about AI, machine learning, and data science.  
-- Tutorials to understand the basics and start your own projects.  
-- Resources (links, tools, references) to go further.  
+- Workflow and internal process automation.  
+- AI tool integration for productivity.  
+- Custom solution development.  
 
 ---
 
@@ -65,14 +64,12 @@ This site is powered by **GitHub Pages** and hosts our content, articles, and re
 ## 🤝 Contribution | Contributing
 
 **FR** :  
-1. Forkez le repo.  
-2. Proposez vos améliorations (articles, correctifs, idées).  
-3. Soumettez une **pull request**.  
+AxiomiqAI est ouvert aux collaborations techniques et aux partenariats.  
+Vous pouvez proposer des idées, corriger des éléments ou enrichir le projet via **pull request**.  
 
 **EN** :  
-1. Fork the repo.  
-2. Suggest improvements (articles, fixes, ideas).  
-3. Submit a **pull request**.  
+AxiomiqAI welcomes technical collaborations and partnerships.  
+You can suggest ideas, fix issues, or enrich the project through **pull requests**.  
 
 ---
 
@@ -80,12 +77,14 @@ This site is powered by **GitHub Pages** and hosts our content, articles, and re
 
 - GitHub : [@brainyverse](https://github.com/brainyverse)  
 - Site web : [axiomigai.dpdns.org](http://axiomigai.dpdns.org)  
+- Email : [contact@axiomiqai.com](mailto:contact@axiomiqai.com) *(à adapter si besoin)*  
 
 ---
 
-✨ *AxiomiqAI – Explorer, comprendre et questionner l’intelligence artificielle.*  
-✨ *AxiomiqAI – Exploring, understanding, and questioning artificial intelligence.*
+✨ *AxiomiqAI – L’automatisation au service de la performance.*  
+✨ *AxiomiqAI – Automation that drives performance.*
 
+---
 
 ## 🛠 Tech Stack
 - HTML5 & CSS3
