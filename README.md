@@ -77,7 +77,7 @@ You can suggest ideas, fix issues, or enrich the project through **pull requests
 
 - GitHub : [@brainyverse](https://github.com/brainyverse)  
 - Site web : [axiomigai.dpdns.org](http://axiomigai.dpdns.org)  
-- Email : [contact@axiomiqai.com](mailto:contact@axiomiqai.com) *(à adapter si besoin)*  
+- Email : [contact@axiomiqai.dpdns.org](mailto:contact@axiomiqai.dpdns.org) 
 
 ---
 
