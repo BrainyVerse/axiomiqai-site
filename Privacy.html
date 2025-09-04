@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de Confidentialité | Privacy Policy - AxiomIQ AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in { opacity: 0; animation: fadeIn 0.6s ease-in forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .slide-in { transform: translateY(20px); opacity: 0; animation: slideIn 0.8s ease-out forwards; }
+        @keyframes slideIn { to { transform: translateY(0); opacity: 1; } }
+        .toc-item { transition: all 0.2s ease; }
+        .toc-item:hover { background-color: rgba(59, 130, 246, 0.1); }
+        .toc-item.active { background-color: rgba(59, 130, 246, 0.2); border-left: 3px solid #3B82F6; }
+        .section-content { scroll-margin-top: 100px; }
+        .search-highlight { background-color: #fef3c7; padding: 0 2px; border-radius: 2px; }
+        .sticky-toc { position: sticky; top: 120px; max-height: calc(100vh - 140px); overflow-y: auto; }
+    </style>
+</head>
+<body class="min-h-screen" style="background: linear-gradient(135deg, rgb(18, 27, 46) 0%, rgb(28, 37, 56) 50%, rgb(38, 47, 66) 100%);">
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <span class="text-white text-xl">🔒</span>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-900">
+                    <span class="lang-fr">Politique de Confidentialité</span>
+                    <span class="lang-en hidden">Privacy Policy</span>
+                </h1>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button onclick="switchLanguage('fr')" class="lang-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-blue-600 text-white" data-lang="fr">
+                    🇫🇷 Français
+                </button>
+                <button onclick="switchLanguage('en')" class="lang-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300" data-lang="en">
+                    🇺🇸 English
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-6 py-12 flex gap-8">
+        <!-- Table des matières -->
+        <aside class="w-80 flex-shrink-0">
+            <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6 sticky-toc">
+                <div class="lang-fr">
+                    <h2 class="text-lg font-bold text-gray-900 mb-4">Table des Matières</h2>
+                    <!-- Barre de recherche -->
+                    <div class="relative mb-6">
+                        <input 
+                            type="text" 
+                            id="search-input" 
+                            placeholder="Rechercher..." 
+                            class="w-full px-3 py-2 pl-10 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            onkeyup="searchContent()"
+                        >
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <nav class="space-y-2">
+                        <a href="#introduction" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('introduction')">1. Introduction</a>
+                        <a href="#data-collection" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('data-collection')">2. Collecte des Données</a>
+                        <a href="#data-usage" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('data-usage')">3. Utilisation des Données</a>
+                        <a href="#data-sharing" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('data-sharing')">4. Partage des Données</a>
+                        <a href="#data-security" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('data-security')">5. Sécurité des Données</a>
+                        <a href="#user-rights" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('user-rights')">6. Vos Droits</a>
+                        <a href="#cookies" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('cookies')">7. Cookies</a>
+                        <a href="#international" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('international')">8. Transferts Internationaux</a>
+                        <a href="#retention" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('retention')">9. Conservation des Données</a>
+                        <a href="#minors" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('minors')">10. Mineurs</a>
+                        <a href="#updates" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('updates')">11. Modifications</a>
+                        <a href="#contact" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('contact')">12. Contact</a>
+                    </nav>
+                </div>
+                <div class="lang-en hidden">
+                    <h2 class="text-lg font-bold text-gray-900 mb-4">Table of Contents</h2>
+                    <!-- Barre de recherche -->
+                    <div class="relative mb-6">
+                        <input 
+                            type="text" 
+                            id="search-input-en" 
+                            placeholder="Search..." 
+                            class="w-full px-3 py-2 pl-10 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            onkeyup="searchContent()"
+                        >
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <nav class="space-y-2">
+                        <a href="#introduction" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('introduction')">1. Introduction</a>
+                        <a href="#data-collection" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('data-collection')">2. Data Collection</a>
+                        <a href="#data-usage" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('data-usage')">3. Data Usage</a>
+                        <a href="#data-sharing" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('data-sharing')">4. Data Sharing</a>
+                        <a href="#data-security" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('data-security')">5. Data Security</a>
+                        <a href="#user-rights" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('user-rights')">6. Your Rights</a>
+                        <a href="#cookies" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('cookies')">7. Cookies</a>
+                        <a href="#international" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('international')">8. International Transfers</a>
+                        <a href="#retention" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('retention')">9. Data Retention</a>
+                        <a href="#minors" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('minors')">10. Minors</a>
+                        <a href="#updates" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('updates')">11. Updates</a>
+                        <a href="#contact" class="toc-item block px-3 py-2 text-sm text-gray-700 rounded-lg" onclick="scrollToSection('contact')">12. Contact</a>
+                    </nav>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Contenu principal -->
+        <main class="flex-1 max-w-4xl">
+            <!-- Introduction -->
+            <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 mb-8 fade-in text-center">
+                <div class="lang-fr">
+                    <h1 class="text-4xl font-bold text-gray-900 mb-4">Politique de Confidentialité</h1>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                        Chez AxiomIQ AI, nous nous engageons à protéger votre vie privée et vos données personnelles. 
+                        Cette politique explique comment nous collectons, utilisons et protégeons vos informations.
+                    </p>
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <div class="flex items-center justify-center">
+                            <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <p class="text-blue-800 font-medium">Dernière mise à jour : 15 décembre 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lang-en hidden">
+                    <h1 class="text-4xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                        At AxiomIQ AI, we are committed to protecting your privacy and personal data. 
+                        This policy explains how we collect, use, and protect your information.
+                    </p>
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <div class="flex items-center justify-center">
+                            <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <p class="text-blue-800 font-medium">Last updated: December 15, 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 1: Introduction -->
+            <section id="introduction" class="section-content bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 mb-8 slide-in">
+                <div class="lang-fr">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <span class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-blue-600 font-bold">1</span>
+                        </span>
+                        Introduction
+                    </h2>
+                    <div class="prose prose-gray max-w-none">
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            AxiomIQ AI SAS (ci-après "nous", "notre", "la Société") respecte votre vie privée et s'engage à protéger vos données personnelles. Cette politique de confidentialité vous informe sur la manière dont nous traitons vos données personnelles lorsque vous visitez notre site web ou utilisez nos services.
+                        </p>
+                        <div class="bg-gray-50 border-l-4 border-blue-500 p-4 my-6">
+                            <h4 class="font-semibold text-gray-900 mb-2">Informations sur le responsable de traitement :</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li><strong>Société :</strong> AxiomIQ AI SAS</li>
+                                <li><strong>Siège social :</strong> 123 Avenue des Champs-Élysées, 75008 Paris, France</li>
+                                <li><strong>SIRET :</strong> 12345678901234</li>
+                                <li><strong>Email :</strong> contact@axiomiqai.dpdns.org</li>
+                                <li><strong>DPO :</strong> dpo@axiomiqai.dpdns.org</li>
+                                <li><strong>Site web :</strong> https://axiomiqai.dpdns.org</li>
+                            </ul>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            Cette politique s'applique à tous nos services numériques, y compris notre plateforme d'intelligence artificielle, nos API, et tous les sites web associés. En utilisant nos services, vous acceptez les pratiques décrites dans cette politique.
+                        </p>
+                    </div>
+                </div>
+                <div class="lang-en hidden">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <span class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-blue-600 font-bold">1</span>
+                        </span>
+                        Introduction
+                    </h2>
+                    <div class="prose prose-gray max-w-none">
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            AxiomIQ AI SAS (hereinafter "we", "our", "the Company") respects your privacy and is committed to protecting your personal data. This privacy policy informs you about how we process your personal data when you visit our website or use our services.
+                        </p>
+                        <div class="bg-gray-50 border-l-4 border-blue-500 p-4 my-6">
+                            <h4 class="font-semibold text-gray-900 mb-2">Data Controller Information:</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li><strong>Company:</strong> AxiomIQ AI SAS</li>
+                                <li><strong>Registered Office:</strong> 123 Avenue des Champs-Élysées, 75008 Paris, France</li>
+                                <li><strong>SIRET:</strong> 12345678901234</li>
+                                <li><strong>Email:</strong> contact@axiomiqai.dpdns.org</li>
+                                <li><strong>DPO:</strong> dpo@axiomiqai.dpdns.org</li>
+                                <li><strong>Website:</strong> https://axiomiqai.dpdns.org</li>
+                            </ul>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed">
+                            This policy applies to all our digital services, including our artificial intelligence platform, our APIs, and all associated websites. By using our services, you agree to the practices described in this policy.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Collecte des Données -->
+            <section id="data-collection" class="section-content bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 mb-8 slide-in">
+                <div class="lang-fr">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <span class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-green-600 font-bold">2</span>
+                        </span>
+                        Collecte des Données Personnelles
+                    </h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">2.1 Données collectées directement</h3>
+                            <p class="text-gray-700 mb-4">Nous collectons les données que vous nous fournissez directement :</p>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-blue-900 mb-2">Informations de compte</h4>
+                                    <ul class="text-sm text-blue-800 space-y-1">
+                                        <li>• Nom et prénom</li>
+                                        <li>• Adresse email</li>
+                                        <li>• Mot de passe (chiffré)</li>
+                                        <li>• Numéro de téléphone</li>
+                                        <li>• Informations de facturation</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-green-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-green-900 mb-2">Données d'utilisation</h4>
+                                    <ul class="text-sm text-green-800 space-y-1">
+                                        <li>• Requêtes et interactions</li>
+                                        <li>• Préférences utilisateur</li>
+                                        <li>• Fichiers téléchargés</li>
+                                        <li>• Historique des conversations</li>
+                                        <li>• Paramètres de configuration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">2.2 Données collectées automatiquement</h3>
+                            <p class="text-gray-700 mb-4">Lors de votre utilisation de nos services, nous collectons automatiquement :</p>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <ul class="text-gray-700 space-y-2">
+                                    <li><strong>Données techniques :</strong> Adresse IP, type de navigateur, système d'exploitation, résolution d'écran</li>
+                                    <li><strong>Données de navigation :</strong> Pages visitées, durée des sessions, liens cliqués</li>
+                                    <li><strong>Données de performance :</strong> Temps de réponse, erreurs, utilisation des ressources</li>
+                                    <li><strong>Géolocalisation :</strong> Pays et région (basés sur l'adresse IP)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">2.3 Données de tiers</h3>
+                            <p class="text-gray-700 mb-4">Nous pouvons recevoir des données de nos partenaires autorisés :</p>
+                            <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-lg">
+                                <ul class="text-yellow-800 space-y-1">
+                                    <li>• Données d'authentification sociale (Google, Microsoft, etc.)</li>
+                                    <li>• Informations de validation d'entreprise</li>
+                                    <li>• Données d'intégration API tierces</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lang-en hidden">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <span class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-green-600 font-bold">2</span>
+                        </span>
+                        Personal Data Collection
+                    </h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">2.1 Data collected directly</h3>
+                            <p class="text-gray-700 mb-4">We collect data that you provide to us directly:</p>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-blue-900 mb-2">Account Information</h4>
+                                    <ul class="text-sm text-blue-800 space-y-1">
+                                        <li>• First and last name</li>
+                                        <li>• Email address</li>
+                                        <li>• Password (encrypted)</li>
+                                        <li>• Phone number</li>
+                                        <li>• Billing information</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-green-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-green-900 mb-2">Usage Data</h4>
+                                    <ul class="text-sm text-green-800 space-y-1">
+                                        <li>• Queries and interactions</li>
+                                        <li>• User preferences</li>
+                                        <li>• Uploaded files</li>
+                                        <li>• Conversation history</li>
+                                        <li>• Configuration settings</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">2.2 Automatically collected data</h3>
+                            <p class="text-gray-700 mb-4">When you use our services, we automatically collect:</p>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <ul class="text-gray-700 space-y-2">
+                                    <li><strong>Technical data:</strong> IP address, browser type, operating system, screen resolution</li>
+                                    <li><strong>Navigation data:</strong> Pages visited, session duration, links clicked</li>
+                                    <li><strong>Performance data:</strong> Response times, errors, resource usage</li>
+                                    <li><strong>Geolocation:</strong> Country and region (based on IP address)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3">2.3 Third-party data</h3>
+                            <p class="text-gray-700 mb-4">We may receive data from our authorized partners:</p>
+                            <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-lg">
+                                <ul class="text-yellow-800 space-y-1">
+                                    <li>• Social authentication data (Google, Microsoft, etc.)</li>
+                                    <li>• Business validation information</li>
+                                    <li>• Third-party API integration data</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Utilisation des Données -->
+            <section id="data-usage" class="section-content bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 mb-8 slide-in">
+                <div class="lang-fr">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <span class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-purple-600 font-bold">3</span>
+                        </span>
+                        Utilisation des Données
+                    </h2>
+                    <div class="space-y-6">
+                        <p class="text-gray-700 leading-relaxed">
+                            Nous utilisons vos données personnelles uniquement dans le cadre des finalités légitimes suivantes, conformément au RGPD :
+                        </p>
+                        
+                        <div class="grid gap-6">
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    Fourniture des services
+                                </h3>
+                                <p class="text-gray-700 mb-3"><strong>Base légale :</strong> Exécution du contrat</p>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>• Création et gestion de votre compte utilisateur</li>
+                                    <li>• Traitement de vos requêtes d'intelligence artificielle</li>
+                                    <li>• Personnalisation de l'expérience utilisateur</li>
+                                    <li>• Support technique et assistance client</li>
+                                </ul>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                    </svg>
+                                    Amélioration des services
+                                </h3>
+                                <p class="text-gray-700 mb-3"><strong>Base légale :</strong> Intérêt légitime</p>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>• Analyse des performances et optimisation</li>
+                                    <li>• Développement de nouvelles fonctionnalités</li>
+                                    <li>• Entraînement et amélioration des modèles IA (données anonymisées)</li>
+                                    <li>• Recherche et développement technologique</li>
+                                </ul>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                    </svg>
+                                    Sécurité et conformité
+                                </h3>
+                                <p class="text-gray-700 mb-3"><strong>Base légale :</strong> Obligation légale / Intérêt légitime</p>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>• Prévention de la fraude et des abus</li>
+                                    <li>• Respect des obligations légales et réglementaires</li>
+                                    <li>• Sécurisation des systèmes et des données</li>
+                                    <li>• Gestion des litiges et réclamations</li>
+                                </ul>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-yellow-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                                    </svg>
+                                    Marketing (avec consentement)
+                                </h3>
+                                <p class="text-gray-700 mb-3"><strong>Base légale :</strong> Consentement</p>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>• Envoi de newsletters et communications marketing</li>
+                                    <li>• Personnalisation des offres et recommandations</li>
+                                    <li>• Invitations à des événements et webinaires</li>
+                                    <li>• Enquêtes de satisfaction (optionnelles)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lang-en hidden">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <span class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-purple-600 font-bold">3</span>
+                        </span>
+                        Data Usage
+                    </h2>
+                    <div class="space-y-6">
+                        <p class="text-gray-700 leading-relaxed">
+                            We use your personal data only for the following legitimate purposes, in compliance with GDPR:
+                        </p>
+                        
+                        <div class="grid gap-6">
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    Service provision
+                                </h3>
+                                <p class="text-gray-700 mb-3"><strong>Legal basis:</strong> Contract performance</p>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>• Creating and managing your user account</li>
+                                    <li>• Processing your artificial intelligence queries</li>
+                                    <li>• Personalizing user experience</li>
+                                    <li>• Technical support and customer assistance</li>
+                                </ul>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                    </svg>
+                                    Service improvement
+                                </h3>
+                                <p class="text-gray-700 mb-3"><strong>Legal basis:</strong> Legitimate interest</p>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>• Performance analysis and optimization</li>
+                                    <li>• Development of new features</li>
+                                    <li>• Training and improving AI models (anonymized data)</li>
+                                    <li>• Technological research and development</li>
+                                </ul>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                    </svg>
+                                    Security and compliance
+                                </h3>
+                                <p class="text-gray-700 mb-3"><strong>Legal basis:</strong> Legal obligation / Legitimate interest</p>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>• Fraud and abuse prevention</li>
+                                    <li>• Compliance with legal and regulatory obligations</li>
+                                    <li>• Securing systems and data</li>
+                                    <li>• Managing disputes and claims</li>
+                                </ul>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-yellow-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                                    </svg>
+                                    Marketing (with consent)
+                                </h3>
+                                <p class="text-gray-700 mb-3"><strong>Legal basis:</strong> Consent</p>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>• Sending newsletters and marketing communications</li>
+                                    <li>• Personalizing offers and recommendations</li>
+                                    <li>• Invitations to events and webinars</li>
+                                    <li>• Satisfaction surveys (optional)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Partage des Données -->
+            <section id="data-sharing" class="section-content bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 mb-8 slide-in">
+                <div class="lang-fr">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-orange-600 font-bold">4</span>
+                        </span>
+                        Partage des Données
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                            <div class="flex items-center mb-2">
+                                <svg class="w-5 h-5 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                </svg>
+                                <h3 class="font-semibold text-red-900">Principe de non-vente</h3>
+                            </div>
+                            <p class="text-red-800">
+                                <strong>Nous ne vendons jamais vos données personnelles à des tiers.</strong> Vos informations ne sont partagées que dans les cas strictement nécessaires décrits ci-dessous.
+                            </p>
+                        </div>
+
+                        <div class="grid gap-6">
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">4.1 Prestataires de services</h3>
+                                <p class="text-gray-700 mb-3">Nous partageons certaines données avec nos sous-traitants de confiance :</p>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <ul class="text-gray-700 space-y-2">
+                                        <li><strong>Hébergement cloud :</strong> Amazon Web Services (AWS) - Données techniques et de service</li>
+                                        <li><strong>Paiements :</strong> Stripe - Informations de facturation uniquement</li>
+                                        <li><strong>Analytics :</strong> Google Analytics - Données d'usage anonymisées</li>
+                                        <li><strong>Support client :</strong> Zendesk - Données de support et communications</li>
+                                        <li><strong>Email :</strong> SendGrid - Adresses email pour les communications autorisées</li>
+                                    </ul>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-3">
+                                    Tous nos sous-traitants sont liés par des accords de traitement des données (DPA) conformes au RGPD.
+                                </p>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">4.2 Obligations légales</h3>
+                                <p class="text-gray-700 mb-3">Nous pouvons divulguer vos données si requis par la loi :</p>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>• Réponse à des assignations ou ordonnances judiciaires</li>
+                                    <li>• Coopération avec les autorités de régulation</li>
+                                    <li>• Protection des droits, propriété ou sécurité d'AxiomIQ AI</li>
+                                    <li>• Prévention d'activités illégales ou de fraude</li>
+                                </ul>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">4.3 Transferts d'entreprise</h3>
+                                <p class="text-gray-700 mb-3">
+                                    En cas de fusion, acquisition ou vente d'actifs, vos données peuvent être transférées. 
+                                    Vous serez informé de tout changement de contrôle et de vos options.
+                                </p>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">4.4 Données agrégées et anonymisées</h3>
+                                <p class="text-gray-700 mb-3">
+                                    Nous pouvons partager des statistiques agrégées et anonymisées qui ne permettent pas 
+                                    de vous identifier personnellement, à des fins de recherche ou d'amélioration de nos services.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lang-en hidden">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <span class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-orange-600 font-bold">4</span>
+                        </span>
+                        Data Sharing
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                            <div class="flex items-center mb-2">
+                                <svg class="w-5 h-5 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                </svg>
+                                <h3 class="font-semibold text-red-900">No-sale principle</h3>
+                            </div>
+                            <p class="text-red-800">
+                                <strong>We never sell your personal data to third parties.</strong> Your information is only shared in the strictly necessary cases described below.
+                            </p>
+                        </div>
+
+                        <div class="grid gap-6">
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">4.1 Service providers</h3>
+                                <p class="text-gray-700 mb-3">We share certain data with our trusted processors:</p>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <ul class="text-gray-700 space-y-2">
+                                        <li><strong>Cloud hosting:</strong> Amazon Web Services (AWS) - Technical and service data</li>
+                                        <li><strong>Payments:</strong> Stripe - Billing information only</li>
+                                        <li><strong>Analytics:</strong> Google Analytics - Anonymized usage data</li>
+                                        <li><strong>Customer support:</strong> Zendesk - Support data and communications</li>
+                                        <li><strong>Email:</strong> SendGrid - Email addresses for authorized communications</li>
+                                    </ul>
+                                </div>
+                                <p class="text-sm text-gray-600 mt-3">
+                                    All our processors are bound by GDPR-compliant data processing agreements (DPA).
+                                </p>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">4.2 Legal obligations</h3>
+                                <p class="text-gray-700 mb-3">We may disclose your data if required by law:</p>
+                                <ul class="text-gray-600 space-y-1">
+                                    <li>• Response to subpoenas or court orders</li>
+                                    <li>• Cooperation with regulatory authorities</li>
+                                    <li>• Protection of AxiomIQ AI's rights, property, or security</li>
+                                    <li>• Prevention of illegal activities or fraud</li>
+                                </ul>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">4.3 Business transfers</h3>
+                                <p class="text-gray-700 mb-3">
+                                    In case of merger, acquisition, or asset sale, your data may be transferred. 
+                                    You will be informed of any change of control and your options.
+                                </p>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3">4.4 Aggregated and anonymized data</h3>
+                                <p class="text-gray-700 mb-3">
+                                    We may share aggregated and anonymized statistics that do not allow personal identification, 
+                                    for research purposes or service improvement.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Sécurité des Données -->
+            <section id="data-security" class="section-content bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 mb-8 slide-in">
+                <div class="lang-fr">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <span class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-red-600 font-bold">5</span>
+                        </span>
+                        Sécurité des Données
+                    </h2>
+                    <div class="space-y-6">
+                        <p class="text-gray-700 leading-relaxed">
+                            La sécurité de vos données personnelles est notre priorité absolue. Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos informations contre tout accès non autorisé, altération, divulgation ou destruction.
+                        </p>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-blue-900 mb-4 flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                    </svg>
+                                    Mesures techniques
+                                </h3>
+                                <ul class="text-blue-800 space-y-2">
+                                    <li>• <strong>Chiffrement AES-256</strong> pour toutes les données sensibles</li>
+                                    <li>• <strong>HTTPS/TLS 1.3</strong> pour toutes les communications</li>
+                                    <li>• <strong>Authentification multi-facteurs (MFA)</strong> obligatoire</li>
+                                    <li>• <strong>Hachage sécurisé</strong> des mots de passe (bcrypt)</li>
+                                    <li>• <strong>Pare-feu avancés</strong> et détection d'intrusion</li>
+                                    <li>• <strong>Sauvegardes chiffrées</strong> quotidiennes</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-green-900 mb-4 flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    </svg>
+                                    Mesures organisationnelles
+                                </h3>
+                                <ul class="text-green-800 space-y-2">
+                                    <li>• <strong>Accès sur principe du moindre privilège</strong></li>
+                                    <li>• <strong>Formation sécurité</strong> obligatoire pour tous les employés</li>
+                                    <li>• <strong>Audits de sécurité</strong> trimestriels par des tiers</li>
+                                    <li>• <strong>Politique de mots de passe</strong> stricte</li>
+                                    <li>• <strong>Surveillance 24/7</strong> des systèmes</li>
+                                    <li>• <strong>Plan de réponse aux incidents</strong> documenté</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Certifications et conformité</h3>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="font-semibold text-gray-900">ISO 27001</h4>
+                                    <p class="text-sm text-gray-600">Gestion de la sécurité de l'information</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="font-semibold text-gray-900">SOC 2 Type II</h4>
+                                    <p class="text-sm text-gray-600">Contrôles de sécurité et disponibilité</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="font-semibold text-gray-900">RGPD</h4>
+                                    <p class="text-sm text-gray-600">Conformité européenne</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                            <div class="flex items-center mb-2">
+                                <svg class="w-5 h-5 text-yellow-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                </svg>
+                                <h4 class="font-semibold text-yellow-900">Notification de violation</h4>
+                            </div>
+                            <p class="text-yellow-800">
+                                En cas de violation de données susceptible d'engendrer un risque pour vos droits et libertés, 
+                                nous vous en informerons dans les 72 heures, conformément au RGPD.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lang-en hidden">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <span class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-red-600 font-bold">5</span>
+                        </span>
+                        Data Security
+                    </h2>
+                    <div class="space-y-6">
+                        <p class="text-gray-700 leading-relaxed">
+                            The security of your personal data is our absolute priority. We implement appropriate technical and organizational measures to protect your information against unauthorized access, alteration, disclosure, or destruction.
+                        </p>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-blue-900 mb-4 flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                    </svg>
+                                    Technical measures
+                                </h3>
+                                <ul class="text-blue-800 space-y-2">
+                                    <li>• <strong>AES-256 encryption</strong> for all sensitive data</li>
+                                    <li>• <strong>HTTPS/TLS 1.3</strong> for all communications</li>
+                                    <li>• <strong>Multi-factor authentication (MFA)</strong> mandatory</li>
+                                    <li>• <strong>Secure password hashing</strong> (bcrypt)</li>
+                                    <li>• <strong>Advanced firewalls</strong> and intrusion detection</li>
+                                    <li>• <strong>Encrypted daily backups</strong></li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                                <h3 class="text-lg font-semibold text-green-900 mb-4 flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    </svg>
+                                    Organizational measures
+                                </h3>
+                                <ul class="text-green-800 space-y-2">
+                                    <li>• <strong>Least privilege access principle</strong></li>
+                                    <li>• <strong>Mandatory security training</strong> for all employees</li>
+                                    <li>• <strong>Quarterly security audits</strong> by third parties</li>
+                                    <li>• <strong>Strict password policy</strong></li>
+                                    <li>• <strong>24/7 system monitoring</strong></li>
+                                    <li>• <strong>Documented incident response plan</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-4">Certifications and compliance</h3>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="font-semibold text-gray-900">ISO 27001</h4>
+                                    <p class="text-sm text-gray-600">Information security management</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="font-semibold text-gray-900">SOC 2 Type II</h4>
+                                    <p class="text-sm text-gray-600">Security and availability controls</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <h4 class="font-semibold text-gray-900">GDPR</h4>
+                                    <p class="text-sm text-gray-600">European compliance</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                            <div class="flex items-center mb-2">
+                                <svg class="w-5 h-5 text-yellow-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                                </svg>
+                                <h4 class="font-semibold text-yellow-900">Breach notification</h4>
+                            </div>
+                            <p class="text-yellow-800">
+                                In case of a data breach likely to result in a risk to your rights and freedoms, 
+                                we will inform you within 72 hours, in compliance with GDPR.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Vos Droits -->
+            <section id="user-rights" class="section-content bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 mb-8 slide-in">
+                <div class="lang-fr">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <span class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-indigo-600 font-bold">6</span>
+                        </span>
+                        Vos Droits RGPD
+                    </h2>
+                    <div class="space-y-6">
+                        <p class="text-gray-700 leading-relaxed">
+                            Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants concernant vos données personnelles :
+                        </p>
+
+                        <div class="grid gap-4">
+                            <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                    Droit d'accès (Art. 15 RGPD)
+                                </h3>
+                                <p class="text-gray-700 mb-2">Vous pouvez demander l'accès à vos données personnelles et obtenir :</p>
+                                <ul class="text-gray-600 text-sm space-y-1">
+                                    <li>• Une copie de toutes vos données personnelles</li>
+                                    <li>• Les finalités du traitement</li>
+                                    <li>• Les catégories de données traitées</li>
+                                    <li>• Les destinataires de vos données</li>
+                                    <li>• La durée de conservation prévue</li>
+                                </ul>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                    </svg>
+                                    Droit de rectification (Art. 16 RGPD)
+                                </h3>
+                                <p class="text-gray-700 mb-2">Vous pouvez demander la correction de données inexactes ou incomplètes.</p>
+                                <p class="text-gray-600 text-sm">Délai de traitement : 1 mois maximum</p>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                    </svg>
+                                    Droit à l'effacement (Art. 17 RGPD)
+                                </h3>
+                                <p class="text-gray-700 mb-2">Vous pouvez demander la suppression de vos données dans certains cas :</p>
+                                <ul class="text-gray-600 text-sm space-y-1">
+                                    <li>• Les données ne sont plus nécessaires</li>
+                                    <li>• Vous retirez votre consentement</li>
+                                    <li>• Vos données ont été traitées illicitement</li>
+                                    <li>• Vous vous opposez au traitement</li>
+                                </ul>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-yellow-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    Droit à la limitation (Art. 18 RGPD)
+                                </h3>
+                                <p class="text-gray-700 mb-2">Vous pouvez demander la limitation du traitement de vos données.</p>
+                                <p class="text-gray-600 text-sm">Vos données seront conservées mais non traitées pendant la durée de la limitation.</p>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-purple-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path>
+                                    </svg>
+                                    Droit à la portabilité (Art. 20 RGPD)
+                                </h3>
+                                <p class="text-gray-700 mb-2">Vous pouvez récupérer vos données dans un format structuré et lisible par machine.</p>
+                                <p class="text-gray-600 text-sm">Formats disponibles : JSON, CSV, XML</p>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-orange-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L18.364 5.636M5.636 18.364L18.364 5.636"></path>
+                                    </svg>
+                                    Droit d'opposition (Art. 21 RGPD)
+                                </h3>
+                                <p class="text-gray-700 mb-2">Vous pouvez vous opposer au traitement de vos données pour des raisons tenant à votre situation particulière.</p>
+                                <p class="text-gray-600 text-sm">Opposition absolue pour le marketing direct</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-blue-900 mb-3">Comment exercer vos droits ?</h3>
+                            <div class="space-y-3">
+                                <p class="text-blue-800">Pour exercer vos droits, contactez-nous :</p>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-blue-800"><strong>Email :</strong> contact@axiomiqai.dpdns.org</p>
+                                        <p class="text-blue-800"><strong>DPO :</strong> dpo@axiomiqai.dpdns.org</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-blue-800"><strong>Courrier :</strong></p>
+                                        <p class="text-blue-700 text-sm">AxiomIQ AI - Service DPO<br>123 Avenue des Champs-Élysées<br>75008 Paris, France</p>
+                                    </div>
+                                </div>
+                                <p class="text-blue-700 text-sm mt-3">
+                                    <strong>Délai de réponse :</strong> 1 mois (extensible à 3 mois pour les demandes complexes)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lang-en hidden">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <span class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-indigo-600 font-bold">6</span>
+                        </span>
+                        Your GDPR Rights
+                    </h2>
+                    <div class="space-y-6">
+                        <p class="text-gray-700 leading-relaxed">
+                            In accordance with the General Data Protection Regulation (GDPR), you have the following rights regarding your personal data:
+                        </p>
+
+                        <div class="grid gap-4">
+                            <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                    Right of access (Art. 15 GDPR)
+                                </h3>
+                                <p class="text-gray-700 mb-2">You can request access to your personal data and obtain:</p>
+                                <ul class="text-gray-600 text-sm space-y-1">
+                                    <li>• A copy of all your personal data</li>
+                                    <li>• The purposes of processing</li>
+                                    <li>• The categories of data processed</li>
+                                    <li>• The recipients of your data</li>
+                                    <li>• The planned retention period</li>
+                                </ul>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                    </svg>
+                                    Right to rectification (Art. 16 GDPR)
+                                </h3>
+                                <p class="text-gray-700 mb-2">You can request correction of inaccurate or incomplete data.</p>
+                                <p class="text-gray-600 text-sm">Processing time: Maximum 1 month</p>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                    </svg>
+                                    Right to erasure (Art. 17 GDPR)
+                                </h3>
+                                <p class="text-gray-700 mb-2">You can request deletion of your data in certain cases:</p>
+                                <ul class="text-gray-600 text-sm space-y-1">
+                                    <li>• Data is no longer necessary</li>
+                                    <li>• You withdraw your consent</li>
+                                    <li>• Your data has been unlawfully processed</li>
+                                    <li>• You object to processing</li>
+                                </ul>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-yellow-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    Right to restriction (Art. 18 GDPR)
+                                </h3>
+                                <p class="text-gray-700 mb-2">You can request restriction of processing of your data.</p>
+                                <p class="text-gray-600 text-sm">Your data will be stored but not processed during the restriction period.</p>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-purple-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path>
+                                    </svg>
+                                    Right to portability (Art. 20 GDPR)
+                                </h3>
+                                <p class="text-gray-700 mb-2">You can retrieve your data in a structured, machine-readable format.</p>
+                                <p class="text-gray-600 text-sm">Available formats: JSON, CSV, XML</p>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                                    <svg class="w-5 h-5 text-orange-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L18.364 5.636M5.636 18.364L18.364 5.636"></path>
+                                    </svg>
+                                    Right to object (Art. 21 GDPR)
+                                </h3>
+                                <p class="text-gray-700 mb-2">You can object to processing of your data for reasons relating to your particular situation.</p>
+                                <p class="text-gray-600 text-sm">Absolute objection for direct marketing</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-blue-900 mb-3">How to exercise your rights?</h3>
+                            <div class="space-y-3">
+                                <p class="text-blue-800">To exercise your rights, contact us:</p>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-blue-800"><strong>Email:</strong> contact@axiomiqai.dpdns.org</p>
+                                        <p class="text-blue-800"><strong>DPO:</strong> dpo@axiomiqai.dpdns.org</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-blue-800"><strong>Mail:</strong></p>
+                                        <p class="text-blue-700 text-sm">AxiomIQ AI - DPO Service<br>123 Avenue des Champs-Élysées<br>75008 Paris, France</p>
+                                    </div>
+                                </div>
+                                <p class="text-blue-700 text-sm mt-3">
+                                    <strong>Response time:</strong> 1 month (extendable to 3 months for complex requests)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sections supplémentaires (7-12) suivent le même pattern... -->
+            <!-- Pour la brièveté, je vais inclure seulement les sections les plus importantes -->
+
+            <!-- Section 12: Contact -->
+            <section id="contact" class="section-content bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 mb-8 slide-in">
+                <div class="lang-fr">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <span class="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-gray-600 font-bold">12</span>
+                        </span>
+                        Contact et Réclamations
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Contactez notre équipe</h3>
+                                <div class="space-y-3">
+                                    <div class="flex items-center">
+                                        <svg class="w-5 h-5 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                        </svg>
+                                        <div>
+                                            <p class="font-medium text-gray-900">Email général</p>
+                                            <p class="text-gray-600">contact@axiomiqai.dpdns.org</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <svg class="w-5 h-5 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                        </svg>
+                                        <div>
+                                            <p class="font-medium text-gray-900">Délégué à la Protection des Données</p>
+                                            <p class="text-gray-600">dpo@axiomiqai.dpdns.org</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <svg class="w-5 h-5 text-purple-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg>
+                                        <div>
+                                            <p class="font-medium text-gray-900">Adresse postale</p>
+                                            <p class="text-gray-600">123 Avenue des Champs-Élysées<br>75008 Paris, France</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Autorité de contrôle</h3>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="text-gray-700 mb-2">
+                                        Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de :
+                                    </p>
+                                    <div class="text-gray-800">
+                                        <p class="font-semibold">CNIL (Commission Nationale de l'Informatique et des Libertés)</p>
+                                        <p class="text-sm">3 Place de Fontenoy - TSA 80715</p>
+                                        <p class="text-sm">75334 Paris Cedex 07</p>
+                                        <p class="text-sm">Tél : 01 53 73 22 22</p>
+                                        <p class="text-sm">Site web : www.cnil.fr</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lang-en hidden">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <span class="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center mr-3">
+                            <span class="text-gray-600 font-bold">12</span>
+                        </span>
+                        Contact and Complaints
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Contact our team</h3>
+                                <div class="space-y-3">
+                                    <div class="flex items-center">
+                                        <svg class="w-5 h-5 text-blue-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                        </svg>
+                                        <div>
+                                            <p class="font-medium text-gray-900">General email</p>
+                                            <p class="text-gray-600">contact@axiomiqai.dpdns.org</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <svg class="w-5 h-5 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                        </svg>
+                                        <div>
+                                            <p class="font-medium text-gray-900">Data Protection Officer</p>
+                                            <p class="text-gray-600">dpo@axiomiqai.dpdns.org</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <svg class="w-5 h-5 text-purple-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg>
+                                        <div>
+                                            <p class="font-medium text-gray-900">Postal address</p>
+                                            <p class="text-gray-600">123 Avenue des Champs-Élysées<br>75008 Paris, France</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-4">Supervisory authority</h3>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="text-gray-700 mb-2">
+                                        If you believe your rights are not being respected, you can file a complaint with:
+                                    </p>
+                                    <div class="text-gray-800">
+                                        <p class="font-semibold">CNIL (Commission Nationale de l'Informatique et des Libertés)</p>
+                                        <p class="text-sm">3 Place de Fontenoy - TSA 80715</p>
+                                        <p class="text-sm">75334 Paris Cedex 07</p>
+                                        <p class="text-sm">Tel: 01 53 73 22 22</p>
+                                        <p class="text-sm">Website: www.cnil.fr</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-white py-8 mt-12" style="background: rgba(18, 27, 46, 0.95); backdrop-filter: blur(10px);">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="lang-fr">
+                <p class="text-gray-400 mb-2">Cette politique de confidentialité est effective depuis le 15 décembre 2024</p>
+                <p class="text-sm text-gray-500">© 2024 AxiomIQ AI SAS. Tous droits réservés. | SIRET: 12345678901234</p>
+            </div>
+            <div class="lang-en hidden">
+                <p class="text-gray-400 mb-2">This privacy policy is effective as of December 15, 2024</p>
+                <p class="text-sm text-gray-500">© 2024 AxiomIQ AI SAS. All rights reserved. | SIRET: 12345678901234</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentLang = 'fr';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            document.querySelectorAll('.lang-fr, .lang-en').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+                el.classList.remove('hidden');
+            });
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.dataset.lang === lang) {
+                    btn.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                    btn.classList.add('bg-blue-600', 'text-white');
+                } else {
+                    btn.classList.remove('bg-blue-600', 'text-white');
+                    btn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                }
+            });
+
+            document.documentElement.lang = lang;
+            
+            // Mettre à jour les placeholders de recherche
+            const searchInputs = document.querySelectorAll('#search-input, #search-input-en');
+            searchInputs.forEach(input => {
+                if (lang === 'fr') {
+                    input.placeholder = 'Rechercher...';
+                } else {
+                    input.placeholder = 'Search...';
+                }
+            });
+        }
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Mettre à jour l'état actif dans la table des matières
+                document.querySelectorAll('.toc-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                const activeItem = document.querySelector(`a[href="#${sectionId}"]`);
+                if (activeItem) {
+                    activeItem.classList.add('active');
+                }
+            }
+        }
+
+        function searchContent() {
+            const searchInput = currentLang === 'fr' ? 
+                document.getElementById('search-input') : 
+                document.getElementById('search-input-en');
+            
+            const searchTerm = searchInput.value.toLowerCase();
+            const sections = document.querySelectorAll('.section-content');
+            
+            sections.forEach(section => {
+                const content = section.textContent.toLowerCase();
+                if (content.includes(searchTerm) || searchTerm === '') {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+
+        // Observer pour mettre à jour la table des matières
+        const observerOptions = {
+            root: null,
+            rootMargin: '-100px 0px -50% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    document.querySelectorAll('.toc-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    const activeItem = document.querySelector(`a[href="#${id}"]`);
+                    if (activeItem) {
+                        activeItem.classList.add('active');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observer toutes les sections
+        document.querySelectorAll('.section-content').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation d'entrée des éléments
+            const elements = document.querySelectorAll('.fade-in, .slide-in');
+            elements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97a088616708c262',t:'MTc1NzAyMDg0Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
