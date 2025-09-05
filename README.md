@@ -1,7 +1,7 @@
 # axiomiqai.dpdns.org
 
 <p align="center">
-  <img src="logo_axiomiqai_transparent.webp" alt="logo_axiomiqai_transparent" width="300">
+  <img src="logo_axiomiqai_transparent.webp" alt="logo_axiomiqai_transparent" width="250">
 </p>
 
 ## 🚀 About
