@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suppression de Données - AxiomIQ AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in { opacity: 0; animation: fadeIn 0.8s ease-in forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .slide-up { transform: translateY(30px); opacity: 0; animation: slideUp 0.6s ease-out forwards; }
+        @keyframes slideUp { to { transform: translateY(0); opacity: 1; } }
+        .custom-bg { background-color: rgb(20, 29, 48); }
+        .gradient-border {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            padding: 2px;
+            border-radius: 12px;
+        }
+        .gradient-border-inner {
+            background-color: rgb(20, 29, 48);
+            border-radius: 10px;
+        }
+        .warning-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .step-number {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        .contact-card {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(29, 78, 216, 0.05));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            transition: all 0.3s ease;
+        }
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen custom-bg text-white">
+    
+    <!-- Header -->
+    <header class="bg-white/10 backdrop-blur-sm shadow-lg border-b border-white/20 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-red-600 to-red-800 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-white">
+                            <span class="lang-fr">Suppression de Données</span>
+                            <span class="lang-en hidden">Data Deletion</span>
+                        </h1>
+                        <p class="text-sm text-gray-300">
+                            <span class="lang-fr">AxiomIQ AI - Gestion de vos données personnelles</span>
+                            <span class="lang-en hidden">AxiomIQ AI - Personal Data Management</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <div class="flex items-center space-x-2">
+                        <button onclick="switchLanguage('fr')" class="lang-btn px-3 py-2 rounded-lg font-medium transition-all duration-200 bg-blue-600 text-white" data-lang="fr">
+                            🇫🇷 FR
+                        </button>
+                        <button onclick="switchLanguage('en')" class="lang-btn px-3 py-2 rounded-lg font-medium transition-all duration-200 bg-white/20 text-white hover:bg-white/30" data-lang="en">
+                            🇺🇸 EN
+                        </button>
+                    </div>
+                    <a href="https://axiomiqai.dpdns.org/" target="_blank" class="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg font-medium transition-colors backdrop-blur-sm">
+                        <span class="lang-fr">🌐 Retour au site</span>
+                        <span class="lang-en hidden">🌐 Back to site</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-4xl mx-auto px-6 py-12">
+        
+        <!-- Hero Section -->
+        <div class="text-center mb-12 fade-in">
+            <div class="w-24 h-24 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center mx-auto mb-6 warning-pulse">
+                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                </svg>
+            </div>
+            <h2 class="text-4xl font-bold text-white mb-4">
+                <span class="lang-fr">Demande de Suppression de Données</span>
+                <span class="lang-en hidden">Data Deletion Request</span>
+            </h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                <span class="lang-fr">Exercez votre droit à l'effacement conformément au RGPD. Nous respectons votre vie privée et traitons toutes les demandes avec sérieux.</span>
+                <span class="lang-en hidden">Exercise your right to erasure in accordance with GDPR. We respect your privacy and handle all requests seriously.</span>
+            </p>
+        </div>
+
+        <!-- Warning Notice -->
+        <div class="gradient-border mb-8 slide-up">
+            <div class="gradient-border-inner p-6">
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-red-400 mb-2">
+                            <span class="lang-fr">⚠️ Action Irréversible</span>
+                            <span class="lang-en hidden">⚠️ Irreversible Action</span>
+                        </h3>
+                        <p class="text-red-300 text-sm mb-3">
+                            <span class="lang-fr">La suppression de vos données est définitive et ne peut pas être annulée. Assurez-vous d'avoir sauvegardé toutes les informations importantes avant de procéder.</span>
+                            <span class="lang-en hidden">Data deletion is permanent and cannot be undone. Make sure you have backed up all important information before proceeding.</span>
+                        </p>
+                        <div class="bg-red-900/30 rounded-lg p-3">
+                            <p class="text-red-200 text-xs">
+                                <span class="lang-fr">💡 <strong>Conseil :</strong> Vous pouvez d'abord demander une copie de vos données via notre formulaire d'exportation avant de les supprimer.</span>
+                                <span class="lang-en hidden">💡 <strong>Tip:</strong> You can first request a copy of your data via our export form before deleting it.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- What Will Be Deleted -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 mb-8 slide-up">
+            <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <span class="lang-fr">Données qui seront supprimées</span>
+                <span class="lang-en hidden">Data that will be deleted</span>
+            </h3>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <h4 class="font-semibold text-blue-400 mb-3">
+                        <span class="lang-fr">📋 Informations personnelles</span>
+                        <span class="lang-en hidden">📋 Personal Information</span>
+                    </h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="lang-fr">Nom et prénom</span>
+                            <span class="lang-en hidden">First and last name</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="lang-fr">Adresse email</span>
+                            <span class="lang-en hidden">Email address</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="lang-fr">Numéro de téléphone</span>
+                            <span class="lang-en hidden">Phone number</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="lang-fr">Préférences de compte</span>
+                            <span class="lang-en hidden">Account preferences</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="space-y-4">
+                    <h4 class="font-semibold text-blue-400 mb-3">
+                        <span class="lang-fr">💾 Données d'utilisation</span>
+                        <span class="lang-en hidden">💾 Usage Data</span>
+                    </h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="lang-fr">Historique des requêtes IA</span>
+                            <span class="lang-en hidden">AI query history</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="lang-fr">Fichiers téléchargés</span>
+                            <span class="lang-en hidden">Uploaded files</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="lang-fr">Logs de connexion</span>
+                            <span class="lang-en hidden">Connection logs</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                            <span class="lang-fr">Données analytiques</span>
+                            <span class="lang-en hidden">Analytics data</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Process Steps -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 mb-8 slide-up">
+            <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                </svg>
+                <span class="lang-fr">Processus de suppression</span>
+                <span class="lang-en hidden">Deletion Process</span>
+            </h3>
+            
+            <div class="space-y-6">
+                <div class="flex items-start space-x-4">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h4 class="font-semibold text-white mb-2">
+                            <span class="lang-fr">Demande initiale</span>
+                            <span class="lang-en hidden">Initial Request</span>
+                        </h4>
+                        <p class="text-gray-300 text-sm">
+                            <span class="lang-fr">Contactez-nous via l'un des moyens ci-dessous avec votre demande de suppression. Incluez votre adresse email associée au compte.</span>
+                            <span class="lang-en hidden">Contact us via one of the methods below with your deletion request. Include your email address associated with the account.</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h4 class="font-semibold text-white mb-2">
+                            <span class="lang-fr">Vérification d'identité</span>
+                            <span class="lang-en hidden">Identity Verification</span>
+                        </h4>
+                        <p class="text-gray-300 text-sm">
+                            <span class="lang-fr">Nous vérifierons votre identité pour des raisons de sécurité. Cela peut nécessiter des informations supplémentaires.</span>
+                            <span class="lang-en hidden">We will verify your identity for security reasons. This may require additional information.</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h4 class="font-semibold text-white mb-2">
+                            <span class="lang-fr">Traitement (30 jours max)</span>
+                            <span class="lang-en hidden">Processing (30 days max)</span>
+                        </h4>
+                        <p class="text-gray-300 text-sm">
+                            <span class="lang-fr">Nous traiterons votre demande dans un délai maximum de 30 jours conformément au RGPD.</span>
+                            <span class="lang-en hidden">We will process your request within a maximum of 30 days in accordance with GDPR.</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                    <div class="step-number">4</div>
+                    <div>
+                        <h4 class="font-semibold text-white mb-2">
+                            <span class="lang-fr">Confirmation</span>
+                            <span class="lang-en hidden">Confirmation</span>
+                        </h4>
+                        <p class="text-gray-300 text-sm">
+                            <span class="lang-fr">Vous recevrez une confirmation une fois la suppression effectuée.</span>
+                            <span class="lang-en hidden">You will receive confirmation once the deletion is completed.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Methods -->
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+            <!-- Email Contact -->
+            <div class="contact-card rounded-2xl p-6 slide-up">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">
+                        <span class="lang-fr">📧 Par Email</span>
+                        <span class="lang-en hidden">📧 By Email</span>
+                    </h3>
+                </div>
+                <p class="text-gray-300 mb-4 text-sm">
+                    <span class="lang-fr">Envoyez votre demande de suppression directement à notre équipe de protection des données.</span>
+                    <span class="lang-en hidden">Send your deletion request directly to our data protection team.</span>
+                </p>
+                <a href="mailto:contact@axiomiqai.dpdns.org?subject=Demande de suppression de données&body=Bonjour,%0A%0AJe souhaite supprimer toutes mes données personnelles de vos systèmes.%0A%0AEmail du compte : %0ANom : %0A%0AMerci" 
+                   class="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                    </svg>
+                    <span class="lang-fr">Envoyer un email</span>
+                    <span class="lang-en hidden">Send email</span>
+                </a>
+                <p class="text-xs text-gray-400 mt-2">contact@axiomiqai.dpdns.org</p>
+            </div>
+
+            <!-- WhatsApp Contact -->
+            <div class="contact-card rounded-2xl p-6 slide-up">
+                <div class="flex items-center space-x-4 mb-4">
+                    <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.109"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">
+                        <span class="lang-fr">💬 Via WhatsApp</span>
+                        <span class="lang-en hidden">💬 Via WhatsApp</span>
+                    </h3>
+                </div>
+                <p class="text-gray-300 mb-4 text-sm">
+                    <span class="lang-fr">Contactez-nous directement sur WhatsApp pour une assistance rapide.</span>
+                    <span class="lang-en hidden">Contact us directly on WhatsApp for quick assistance.</span>
+                </p>
+                <a href="https://wa.me/33185149267?text=Bonjour,%20je%20souhaite%20supprimer%20toutes%20mes%20données%20personnelles%20de%20vos%20systèmes.%20Email%20du%20compte%20:%20" 
+                   target="_blank"
+                   class="whatsapp-btn inline-flex items-center space-x-2 text-white px-6 py-3 rounded-lg font-medium">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.109"/>
+                    </svg>
+                    <span class="lang-fr">Ouvrir WhatsApp</span>
+                    <span class="lang-en hidden">Open WhatsApp</span>
+                </a>
+                <p class="text-xs text-gray-400 mt-2">+33 1 85 14 92 67</p>
+            </div>
+        </div>
+
+        <!-- Phone Contact -->
+        <div class="contact-card rounded-2xl p-6 mb-8 slide-up">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">
+                            <span class="lang-fr">📞 Support Téléphonique</span>
+                            <span class="lang-en hidden">📞 Phone Support</span>
+                        </h3>
+                        <p class="text-gray-300 text-sm">
+                            <span class="lang-fr">Appelez-nous directement depuis Paris</span>
+                            <span class="lang-en hidden">Call us directly from Paris</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <a href="tel:+33185149267" class="text-2xl font-bold text-purple-400 hover:text-purple-300 transition-colors">
+                        +33 1 85 14 92 67
+                    </a>
+                    <p class="text-xs text-gray-400">
+                        <span class="lang-fr">Lun-Ven 9h-18h (CET)</span>
+                        <span class="lang-en hidden">Mon-Fri 9am-6pm (CET)</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legal Information -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-8 slide-up">
+            <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-3 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                </svg>
+                <span class="lang-fr">Informations légales</span>
+                <span class="lang-en hidden">Legal Information</span>
+            </h3>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-semibold text-yellow-400 mb-3">
+                        <span class="lang-fr">🏢 AxiomIQ AI</span>
+                        <span class="lang-en hidden">🏢 AxiomIQ AI</span>
+                    </h4>
+                    <div class="space-y-2 text-gray-300 text-sm">
+                        <p><strong class="text-white">
+                            <span class="lang-fr">Siège social :</span>
+                            <span class="lang-en hidden">Headquarters:</span>
+                        </strong> Paris, France</p>
+                        <p><strong class="text-white">
+                            <span class="lang-fr">Site web :</span>
+                            <span class="lang-en hidden">Website:</span>
+                        </strong> <a href="https://axiomiqai.dpdns.org/" class="text-blue-400 hover:text-blue-300">axiomiqai.dpdns.org</a></p>
+                        <p><strong class="text-white">Email :</strong> contact@axiomiqai.dpdns.org</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-yellow-400 mb-3">
+                        <span class="lang-fr">⚖️ Droits RGPD</span>
+                        <span class="lang-en hidden">⚖️ GDPR Rights</span>
+                    </h4>
+                    <div class="space-y-2 text-gray-300 text-sm">
+                        <p class="lang-fr">• Droit à l'effacement (Art. 17 RGPD)</p>
+                        <p class="lang-fr">• Délai de traitement : 30 jours maximum</p>
+                        <p class="lang-fr">• Droit de recours auprès de la CNIL</p>
+                        
+                        <p class="lang-en hidden">• Right to erasure (Art. 17 GDPR)</p>
+                        <p class="lang-en hidden">• Processing time: 30 days maximum</p>
+                        <p class="lang-en hidden">• Right of appeal to the CNIL</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'fr';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Masquer tous les éléments de langue
+            document.querySelectorAll('.lang-fr, .lang-en').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            // Afficher les éléments de la langue sélectionnée
+            document.querySelectorAll(`.lang-${lang}`).forEach(el => {
+                el.classList.remove('hidden');
+            });
+            
+            // Mettre à jour les boutons de langue
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.dataset.lang === lang) {
+                    btn.classList.remove('bg-white/20', 'hover:bg-white/30');
+                    btn.classList.add('bg-blue-600');
+                } else {
+                    btn.classList.remove('bg-blue-600');
+                    btn.classList.add('bg-white/20', 'hover:bg-white/30');
+                }
+            });
+
+            // Mettre à jour le titre de la page
+            const titles = {
+                'fr': 'Suppression de Données - AxiomIQ AI',
+                'en': 'Data Deletion - AxiomIQ AI'
+            };
+            document.title = titles[lang];
+            
+            // Mettre à jour la langue du document
+            document.documentElement.lang = lang;
+        }
+
+        // Animation d'entrée
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in, .slide-up');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97a67344d033c8ed',t:'MTc1NzA4Mjg5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
